@@ -5,14 +5,14 @@ const routes = require('./route/blog');
 const gigRoute = require('./route/gigs')
 const BlogPost = require('./model/Blog');
 const Gig = require('./model/Gig');
-const URL = process.env.MONGO_URI  || process.env.MONGO_URI2
+const MONGOURI = process.env.MONGO_URI  || process.env.MONGO_URI2
 // const bodyParser = require('body-parser')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB
-mongoose.connect(URL)
+mongoose.connect(MONGOURI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
