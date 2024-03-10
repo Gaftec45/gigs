@@ -67,6 +67,13 @@
         .gig-price{
             font-size: 14px;
         }
+
+                /* Media queries for mobile devices */
+        @media only screen and (min-width: 768px) {
+            .column {
+                flex: 0 0 calc(33.33% - 20px); /* Adjust this for desktop */
+            }
+        }
     </style>
     <section class="gig-row">
         <% if (gigs && gigs.length > 0) { %>

@@ -1,90 +1,99 @@
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        .about-section {
-            background-color: #fff;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 5px;
-        }
+    .container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
 
-        .about-section h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
+    .about-section {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
 
-        .about-section p {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
+    .team-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-        .team-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    .team-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
 
-        .team-section h2 {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .column {
+        flex: 0 0 calc(20.33% - 10px);
+        margin: 10px;
+    }
 
+    .card {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+    }
+
+    .card img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .container1 {
+        text-align: left;
+    }
+
+     .container1 h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .container1 p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+    } 
+
+    .button {
+        background-color: #2a9346e1;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #66b079e1;
+    }
+
+    /* Media query for responsiveness */
+    @media only screen and (max-width: 768px) {
         .column {
-            flex: 0 0 300px;
-            margin: 10px;
+            flex: 0 0 calc(50% - 20px);
         }
+    }
 
-        .card {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+    @media only screen and (max-width: 480px) {
+        .column {
+            flex: 0 0 100%;
         }
+    }
+</style>
 
-        .card img {
-            width: 100%;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        .container {
-            text-align: left;
-        }
-
-        .container h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .container p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .button {
-            background-color: #2a9346e1;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .button:hover {
-            background-color: #66b079e1;
-        }
-    </style>
+<div class="container">
     <div class="about-section">
         <h1>About Tega</h1>
         <p>In a world that constantly shifts under the feet of progress, Tega Fate stands as a beacon of innovation and unmatched quality. Our journey began in [Starting Year], rooted in the simple yet powerful idea that the products we use every day should make life not just easier, but also more fulfilling. From our humble beginnings as a [Brief Description of Initial Product/Service Offering], we've grown into a trusted name across multiple industries, all the while staying true to our core belief: combining cutting-edge technology with exceptional craftsmanship to create products that matter.</p>
@@ -96,11 +105,11 @@
             <div class="column">
                 <div class="card">
                     <img src="/uploads/imageUrl-1709934138681.jpg" alt="Jane">
-                    <div class="container">
+                    <div class="container1">
                         <h2>Jane Doe</h2>
                         <p class="title">CEO & Founder</p>
                         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>jane@example.com</p>
+                        <p>jane@example.com</p> 
                         <p><button class="button">Contact</button></p>
                     </div>
                 </div>
@@ -109,7 +118,7 @@
             <div class="column">
                 <div class="card">
                     <img src="/uploads/imageUrl-1709931203803.jpg" alt="Mike">
-                    <div class="container">
+                    <div class="container1">
                         <h2>Mike Ross</h2>
                         <p class="title">Art Director</p>
                         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -122,7 +131,7 @@
             <div class="column">
                 <div class="card">
                     <img src="/uploads/imageUrl-1709975906189.jpg" alt="John">
-                    <div class="container">
+                    <div class="container1">
                         <h2>John Doe</h2>
                         <p class="title">Designer</p>
                         <p>Some text that describes me lorem ipsum ipsum lorem.</p>
@@ -133,3 +142,4 @@
             </div>
         </div>
     </div>
+</div>
