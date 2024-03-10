@@ -7,27 +7,24 @@
     <link href='https://fonts.googleapis.com/css?family=Anta' rel='stylesheet'>
     <title>Blog</title>
     <style>
-        /* Reset default margin and padding */
+        /* General styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Body styles */
         body {
             font-family: 'Anta';
             background-color: #1e6021a0;
             padding: 2px;
         }
 
-        /* Container styles */
         .container {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        /* Header styles */
         .header {
             text-align: center;
             margin-bottom: 20px;
@@ -44,21 +41,22 @@
         .hero-banner {
             display: flex;
             transition: transform 0.5s ease;
-            height: 600px; /* Set the height of the banner */
         }
 
         /* Individual hero slide */
         .hero-slide {
             flex: 0 0 100%;
             max-width: 100%;
-            height: 100%;
+            height: 100vh; /* Set the height of the banner */
             position: relative;
             background-size: cover;
             background-position: center;
         }
-        .hero-slide img{
+
+        .hero-slide img {
             width: 100%;
-            /* height: auto; */
+            height: 100%;
+            object-fit: cover; /* Ensure the image covers the entire container */
         }
 
         /* Text on hero banner */
@@ -75,14 +73,29 @@
             z-index: 1;
         }
 
-
-        .get-started{
+        .get-started {
             padding: 8px;
             font-size: 25px;
             margin: 25px;
             border: none;
             border-radius: 10px;
         }
+
+        /* Media queries for mobile devices */
+        @media only screen and (max-width: 768px) {
+            .hero-slide {
+                height: 100vh; /* Adjust the height for mobile */
+            }
+
+            .hero-text {
+                font-size: 20px; /* Reduce font size for mobile */
+            }
+
+            .get-started {
+                font-size: 20px; /* Reduce button font size for mobile */
+            }
+        }
+
     </style>
 </head>
 <body>

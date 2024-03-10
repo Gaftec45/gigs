@@ -19,7 +19,7 @@ mongoose.connect(MONGOURI)
   app.set('view engine', 'ejs');
 
   app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-  app.use(express.static('public')); // Serve static files
+  app.use(express.static('public')); // Serve static files 
 
 // Routes
 app.use('/', gigRoute)
