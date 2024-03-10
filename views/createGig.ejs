@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Gig</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: none;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create a New Gig</h1>
+    <form action="/create-gig" method="POST" enctype="multipart/form-data" id="gigForm">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+      
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description" required></textarea><br>
+      
+        <label for="price">Price:</label><br>
+        <input type="number" id="price" name="price" required><br>
+      
+        <label for="imageUrl">Image (optional):</label><br>
+        <input type="file" id="imageUrl" name="imageUrl"><br>
+      
+        <label for="category">Category:</label><br>
+        <select id="category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="Graphics & Designs">Graphics & Designs</option>
+            <option value="Programming & Tech">Programming & Tech</option>
+            <option value="Digital Marketing">Digital Marketing</option>
+            <option value="Video & Animation">Video & Animation</option>
+            <option value="Writing & Translation">Writing & Translation</option>
+        </select><br>
+      
+        <label for="subcategory">Sub-category:</label><br>
+        <select id="subcategory" name="subcategory" required>
+            <option value="">Select a sub-category</option>
+        </select><br>
+      
+        <button type="submit">Create Gig</button>
+    </form>
+
+    <script>
+        // JavaScript code to populate sub-category select based on main category selection
+        document.getElementById('category').addEventListener('change', function() {
+            var category = this.value;
+            var subcategorySelect = document.getElementById('subcategory');
+            subcategorySelect.innerHTML = ''; // Clear previous options
+            
+            var subcategories = {};
+            subcategories['Graphics & Designs'] = ['Logo Design', 'Illustration', 'Business Cards & Stationery'];
+            subcategories['Programming & Tech'] = ['Web Programming', 'Mobile Apps', 'Desktop Applications'];
+            subcategories['Digital Marketing'] = ['Social Media Marketing', 'SEO', 'Email Marketing', 'Ecommerce Marketing'];
+            subcategories['Video & Animation'] = ['Whiteboard & Animated Explainers', 'Promotional Videos', 'Video Editing'];
+            subcategories['Writing & Translation'] = ['Articles & Blog Posts', 'Resumes & Cover Letters', 'Translation'];
+
+            if (subcategories[category]) {
+                subcategories[category].forEach(function(subcategory) {
+                    var option = document.createElement('option');
+                    option.value = subcategory;
+                    option.textContent = subcategory;
+                    subcategorySelect.appendChild(option);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

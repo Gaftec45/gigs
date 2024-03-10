@@ -1,0 +1,92 @@
+    <style>
+        /* Row styles for gigs */
+        .gig-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Column styles for gigs */
+        .gig-column {
+            flex: 0 0 300px;
+            margin: 10px;
+        }
+
+        /* Card styles for gigs */
+        .gig-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+        }
+
+        /* Gig image styles */
+        .gig-card img {
+            width: 100%;
+            height: 250px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        /* Container styles for gigs */
+        .gig-container {
+            text-align: left;
+        }
+
+        /* Gig title styles */
+        .gig-title {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        /* Gig description styles */
+        .gig-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        /* Button styles for gigs */
+        .gig-button {
+            background-color: #2a9346e1;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Button hover styles for gigs */
+        .gig-button:hover {
+            background-color: #66b079e1;
+        }
+        .checked {
+        color: orange;
+        }
+        .gig-price{
+            font-size: 14px;
+        }
+    </style>
+    <section class="gig-row">
+        <% if (gigs && gigs.length > 0) { %>
+            <% gigs.slice(0, 3).forEach(gig => { %>
+                <div class="gig-column">
+                    <div class="gig-card">
+                        <% if (gig.imageUrl) { %>
+                            <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
+                        <% } %>
+                        <div class="gig-container">
+                            <p>Best Seller</p>
+                            <h4 class="gig-title"><%= gig.title %></h4>
+                            <p style="font-size: 15px;"><span class="fa fa-star checked"></span> 5.0(5)</p>
+                            <p class="gig-price">Price: $<%= gig.price %></p>
+                            <button class="gig-button">Order Now</button>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p class="no-gigs-message">No gigs found.</p>
+        <% } %>
+    </section>

@@ -1,0 +1,66 @@
+<style>
+        .container {
+            max-width: 1200px; /* Adjusted for better alignment of cards */
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Centering the blog post cards */
+        }
+
+        .blog-post {
+            flex: 0 0 300px; /* Mimics the gig-column setup */
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 10px;
+            text-align: left; /* Aligns text inside the card */
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: auto; /* Adjusted for responsiveness */
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .blog-post h2 {
+            font-size: 17px; /* Mimics the gig-title setup */
+            margin-bottom: 10px;
+            color: #000000; /* A touch of color */
+        }
+
+        .blog-post p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px; /* Keeps uniform spacing */
+        }
+
+        .no-posts-message {
+            width: 100%; /* Ensures the message centers correctly */
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+            margin-top: 50px;
+        }
+</style>
+</head>
+<body>
+
+    <div class="container">
+        <% if (blogs.length > 0) { %>
+            <% blogs.slice(0, 3).forEach(blog => { %>
+                <div class="blog-post">
+                    <% if (blog.imageUrl) { %>
+                        <img src="<%= blog.imageUrl.replace('public', '') %>" alt="<%= blog.title %>">
+                    <% } %>
+                    <h2><%= blog.title %></h2>
+                    <p>By: <%= blog.author %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p class="no-posts-message">No blog posts yet. Check back soon!</p>
+        <% } %>
+    </div>
+    

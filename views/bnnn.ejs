@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pricing Package</title>
+    <style>
+        /* Row styles for packages */
+        .pricing-packages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            /* Add some space between packages */
+        }
+
+        /* Column styles for packages */
+        .pricing-package {
+            flex: 0 1 calc(20.33%); /* Adjust column width */
+            margin-bottom: 20px; /* Add margin to the bottom of each column */
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease; /* Add a smooth transition effect */
+        }
+
+        /* Package title styles */
+        .pricing-package h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Package price styles */
+        .pricing-package p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 15px; /* Add some space below the price */
+        }
+
+        /* Form label styles */
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block; /* Display labels as block elements */
+        }
+
+        /* Form input styles */
+        input[type="text"],
+        input[type="number"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        /* Button styles */
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Pricing Package</h1>
+    <form action="/add-package" method="POST" id="packageForm">
+        <div class="pricing-packages">
+            <!-- Basic Package -->
+            <div class="pricing-package">
+                <h2>Basic</h2>
+                <label for="basicTitle">Basic Title:</label>
+                <input type="text" id="basicTitle" name="basicTitle" required>
+
+                <label for="basicDescription">Basic Description:</label>
+                <textarea id="basicDescription" name="basicDescription" required></textarea>
+
+                <label for="basicPrice">Basic Price:</label>
+                <input type="number" id="basicPrice" name="basicPrice" required>
+
+                <label for="basicDeliveryDays">Basic Delivery Days:</label>
+                <select id="basicDeliveryDays" name="basicDeliveryDays" required>
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                </select>
+            </div>
+
+            <!-- Standard Package -->
+            <div class="pricing-package">
+                <h2>Standard</h2>
+                <label for="standardTitle">Standard Title:</label><br>
+        <input type="text" id="standardTitle" name="standardTitle" required><br>
+      
+        <label for="standardDescription">Standard Description:</label><br>
+        <textarea id="standardDescription" name="standardDescription" required></textarea><br>
+      
+        <label for="standardPrice">Standard Price:</label><br>
+        <input type="number" id="standardPrice" name="standardPrice" required><br>
+
+        <label for="standardDeliveryDays">Standard Delivery Days:</label><br>
+        <select id="standardDeliveryDays" name="standardDeliveryDays" required>
+            <option value="1">1 Day</option>
+            <option value="2">2 Days</option>
+            <option value="3">3 Days</option>
+            <!-- Add more options as needed -->
+        </select><br>
+                <!-- Add Standard Package fields here -->
+            </div>
+
+            <!-- Premium Package -->
+            <div class="pricing-package">
+                <h2>Premium</h2>
+                <!-- Premium Package -->
+        <label for="premiumTitle">Premium Title:</label><br>
+        <input type="text" id="premiumTitle" name="premiumTitle" required><br>
+      
+        <label for="premiumDescription">Premium Description:</label><br>
+        <textarea id="premiumDescription" name="premiumDescription" required></textarea><br>
+      
+        <label for="premiumPrice">Premium Price:</label><br>
+        <input type="number" id="premiumPrice" name="premiumPrice" required><br>
+
+        <label for="premiumDeliveryDays">Premium Delivery Days:</label><br>
+        <select id="premiumDeliveryDays" name="premiumDeliveryDays" required>
+            <option value="1">1 Day</option>
+            <option value="2">2 Days</option>
+            <option value="3">3 Days</option>
+            <!-- Add more options as needed -->
+        </select><br>
+                <!-- Add Premium Package fields here -->
+            </div>
+        </div>
+      
+        <button type="submit">Add Package</button>
+    </form>      
+</body>
+</html>

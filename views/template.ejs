@@ -1,0 +1,74 @@
+<style>
+            /* Blog post styles */
+            .blog-post {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Blog post title styles */
+        .blog-post h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Blog post content styles */
+        .blog-post p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        /* Blog post image styles */
+        .blog-post img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        /* No blog posts message styles */
+        .no-posts-message {
+            text-align: center;
+            font-size: 18px;
+            color: #777;
+            margin-top: 20px;
+        }
+</style>
+
+<div class="container">
+    <% if (blogs.length > 0) { %>
+        <% blogs.forEach(blog => { %>
+            <div class="blog-post">
+                <h2><%= blog.title %></h2>
+                <p><%= blog.content %></p>
+                <% if (blog.imageUrl) { %>
+                    <img src="<%= blog.imageUrl.replace('public', '') %>" alt="<%= blog.title %>">
+                <% } %>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p class="no-posts-message">No blog posts yet. Check back soon!</p>
+    <% } %>
+</div>
+
+
+<section>
+    <h2>Gigs</h2>
+    <% if (gigs && gigs.length > 0) { %>
+        <% gigs.forEach(function(gig) { %>
+            <div class="gig-container">
+                <h3 class="gig-title"><%= gig.title %></h3>
+                <% if (gig.imageUrl) { %>
+                    <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
+                <% } %>
+                <p> Price: $<%= gig.price %></p>
+                <p class="gig-description"><%= gig.description %></p>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p class="no-gigs-message">No gigs found.</p>
+    <% } %>
+</section> 

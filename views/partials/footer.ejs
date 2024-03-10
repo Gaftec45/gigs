@@ -1,0 +1,115 @@
+<style>
+    .footer {
+        background-color: #ebebeb;
+        color: #000000;
+        font-size: 15px;
+        line-height: 1.6;
+        padding: 40px 0;
+    }
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 20px;
+    }
+    .footer-section {
+        flex: 1;
+        min-width: 250px;
+        margin: 20px 10px;
+    }
+    .footer-section h3 {
+        color: #000000;
+        margin-bottom: 20px;
+    }
+    .footer-section a {
+        color: #000000;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 10px;
+    }
+    .footer-section a:hover {
+        color: #494949;
+    }
+    .newsletter-form {
+        margin-top: 20px;
+    }
+    .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        margin-right: 10px;
+        width: calc(100% - 120px);
+    }
+    .newsletter-form button {
+        padding: 10px;
+        background-color: #000000;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    .newsletter-form button:hover {
+        background-color: #c0392b;
+    }
+    .social-icons {
+        margin-top: 20px;
+    }
+    .social-icons a {
+        margin: 0 10px;
+        color: #000000;
+        text-decoration: none;
+    }
+    .social-icons a:hover {
+        color: #b1efff;
+    }
+    .footer-bottom {
+        text-align: center;
+        color: #000000;
+        padding-top: 20px;
+    }
+    @media (max-width: 768px) {
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        .newsletter-form input[type="email"] {
+            width: calc(100% - 90px);
+        }
+    }
+</style>
+
+<div class="footer">
+<div class="footer-container">
+    <div class="footer-section">
+        <h3>About Us</h3>
+        <p>Providing top-notch services and solutions to our clients worldwide.</p>
+    </div>
+    <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+    <div class="footer-section">
+        <h3>Newsletter</h3>
+        <p>Subscribe to our newsletter for the latest updates.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Your Email Address">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="#"><i class="fa fa-facebook-f"></i> Facebook</a>
+            <a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fa fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fa fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+    </div>
+</div>
+<div class="footer-bottom">
+    © 2024 Tega Fate. All rights reserved.
+</div>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= gig.title %> - Gig Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .gig-details {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .gig-image {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .gig-details p {
+            margin-bottom: 10px;
+        }
+
+        .gig-details strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <p> <%= gig.category %> / <%= gig.subcategory %></p>
+    <h1><%= gig.title %> - Gig Details</h1>
+    <div class="gig-details">
+        <% if (gig.imageUrl) { %>
+            <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
+        <% } %>
+        <p><strong>Description:</strong> <%= gig.description %></p>
+        <p><strong>Price:</strong> $<%= gig.price %></p>
+    </div>
+</body>
+</html>
