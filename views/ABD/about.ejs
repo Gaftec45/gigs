@@ -1,9 +1,4 @@
 <style>
-/* General Reset */
-* {
-    box-sizing: border-box;
-}
-
 .container {
     max-width: 800px;
     margin: auto;
@@ -20,13 +15,12 @@
 
 .team-section {
     text-align: center;
-    margin-bottom: 50px; /* Increased margin for better separation */
+    margin-bottom: 20px;
 }
 
 .team-section h2 {
-    font-size: 32px; /* Larger font size for the section heading */
-    margin-bottom: 30px; /* Increased margin for better spacing */
-    color: #333; /* Dark color for better contrast */
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
 .row {
@@ -36,49 +30,42 @@
 }
 
 .column {
-    flex: 0 0 calc(20% - 20px); /* Adjusted column width with margin */
+    flex: 0 0 calc(20% - 20px); /* Adjusted column width */
     margin: 10px;
 }
 
 .card {
-    background-color: #f9f9f9; /* Light gray background for cards */
-    border-radius: 8px; /* Rounded corners for cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 20px; /* Increased padding for content */
-    transition: transform 0.3s ease; /* Smooth transition on hover */
-}
-
-.card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-}
-
-.card img {
-    max-width: 100%;
-    border-radius: 50%; /* Rounded profile images */
-    margin-bottom: 20px;
-}
-
-.container1 {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 5px; /* Increased padding for better spacing */
     text-align: left; /* Align text to the left within cards */
 }
 
+.card img {
+    max-width: 40%;
+    float: left;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-right: 15px;
+}
+
+.container1 {
+    text-align: left;
+}
+
 .container1 h2 {
-    font-size: 24px; /* Adjusted font size for names */
-    margin-bottom: 10px; /* Reduced margin for tighter spacing */
+    font-size: 20px;
+    margin-bottom: 5px;
 }
 
 .container1 p {
     font-size: 16px;
     color: #666;
     margin-bottom: 10px;
-}
+} 
 
-.title {
-    color: #999; /* Lighter color for job titles */
-    font-size: 18px; /* Adjusted font size for job titles */
-    margin-bottom: 5px; /* Reduced margin for tighter spacing */
-}
-/* .button {
+.button {
     background-color: #2a9346e1;
     color: #fff;
     border: none;
@@ -86,7 +73,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-} */
+}
 
 .button:hover {
     background-color: #66b079e1;
