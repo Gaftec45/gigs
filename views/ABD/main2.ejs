@@ -75,7 +75,7 @@
     cursor: pointer;
     border: 0;
     outline: none;
-    background-color: #007bff; /* Primary button color */
+    background-color: #0fb112; /* Primary button color */
     color: white;
     padding: 10px 20px;
     border-radius: 5px; /* Rounded corners for a modern look */
@@ -101,8 +101,21 @@
 
     @media (max-width: 768px) {
         .containerr {
+            background-image: url(/uploads/second.jpg);
+            background-size: cover;
+            border-radius: 0;
             flex-direction: column;
             align-items: stretch;
+            padding: 0;
+        }
+        .containerr .back{
+            background-color: #00000090;
+        }
+        .containerr h1, .containerr p {
+            color: #fff;
+        }
+        .rating {
+            color: #fff;
         }
 
         .banner img {
@@ -112,19 +125,21 @@
 </style>
 
 <div class="containerr">
-    <div class="cont">
-        <p>Tega</p>
-        <h1>Hello, we are THE TEGAFATE</h1>
-        <p>We Design for Success and Build to Business Goals</p>
-        <div class="rating">
-            <span><i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> 4.9 <span>(150)</span></span>
-        </div>
-        <div class="btn-container">
-            <div class="btn-us">
-                <button>Contact Us</button>
+    <div class="back">
+        <div class="cont">
+            <p>Tega</p>
+            <h1>Hello, we are THE TEGAFATE</h1>
+            <p>We Design for Success and Build to Business Goals</p>
+            <div class="rating">
+                <span><i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> 4.9 <span>(150)</span></span>
             </div>
-            <div class="btn-us" style="margin-left: 20px;">
-                <button>Book a Meeting</button>
+            <div class="btn-container">
+                <div class="btn-us">
+                    <button>Contact Us</button>
+                </div>
+                <div class="btn-us" style="margin-left: 20px;">
+                    <button>Book a Meeting</button>
+                </div>
             </div>
         </div>
     </div>
