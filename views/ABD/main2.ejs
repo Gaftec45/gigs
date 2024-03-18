@@ -1,0 +1,134 @@
+<style>
+    /* General Reset */
+    .containerr {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(96, 96, 96, 0.649);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 5px;
+    }
+
+    .containerr {
+    background: linear-gradient(135deg, #ffffff, #f1f1f1); /* Example gradient - adjust as needed */
+    color: #fff; /* Ensures text is white for better readability on the gradient background */
+    }
+    .containerr h1, .containerr p {
+    color: #000000; /* Light color for better readability */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Enhancing text shadow for depth */
+    }
+
+    .cont {
+        display: inline-block;
+        padding: 20px;
+    }
+    /* Additional professional touches */
+    .cont h1, p {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Text shadow for depth */
+    }
+
+    .cont  h1 {
+        color: #333;
+        font-size: 1.4em;
+    }
+
+    .cont p {
+        color: #000000;
+        margin: 10px 0 20px;
+        font-size: 40px;
+    }
+
+    .rating {
+        color: #000000;
+        font-size: 1rem;
+    }
+
+    .rating .fa-star {
+        color: #ff9505;
+    }
+
+    .btn-container {
+    display: flex;
+    justify-content:left; /* Aligns child divs to opposite ends */
+    width: 100%; /* Ensures the container takes full width of its parent */
+    padding: 20px; /* Adds some padding around the buttons */
+}
+
+.btn-us {
+    /* Adjusted for individual button styling */
+    display: flex;
+}
+
+.btn-us:first-child {
+    justify-content: flex-start; /* Aligns the first button to the left */
+}
+
+.btn-us:last-child {
+    justify-content: flex-end; /* Aligns the second button to the right */
+}
+
+.btn-us button {
+    cursor: pointer;
+    border: 0;
+    outline: none;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px; /* Rounded corners for a modern look */
+    font-size: 1rem;
+    font-weight: 600; /* Makes the text slightly bolder */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+.btn-us button:hover {
+    transform: translateY(-2px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Increased shadow for lifted effect */
+    background-color: #0056b3; /* Darker shade on hover for interaction feedback */
+}
+
+    .banner img {
+        max-width: 650px;
+        max-height: 420px;
+        width: auto;
+        height: auto;
+        border-radius: 4px; /* Optional: Adds rounded corners to the image */
+    }
+
+    @media (max-width: 768px) {
+        .containerr {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .banner img {
+            display: none;
+        }
+    }
+</style>
+
+<div class="containerr">
+    <div class="cont">
+        <p>Tega</p>
+        <h1>Hello, we are THE TEGAFATE</h1>
+        <p>We Design for Success and Build to Business Goals</p>
+        <div class="rating">
+            <span><i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> <i class="fa fa-star checked"></i> 4.9 <span>(150)</span></span>
+        </div>
+        <div class="btn-container">
+            <div class="btn-us">
+                <button>Contact Us</button>
+            </div>
+            <div class="btn-us" style="margin-left: 20px;">
+                <button>Book a Meeting</button>
+            </div>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="/uploads/second.jpg" alt="tega gig's">
+    </div>
+</div>

@@ -3,14 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= gig.title %> - Gig Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title><%= gig.title %></title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            margin: 0;
-            padding: 0;
-        }
 
         h1 {
             text-align: center;
@@ -43,6 +38,8 @@
     </style>
 </head>
 <body>
+    <%- include('partials/navBar') %>
+
     <p> <%= gig.category %> / <%= gig.subcategory %></p>
     <h1><%= gig.title %> - Gig Details</h1>
     <div class="gig-details">
@@ -52,5 +49,8 @@
         <p><strong>Description:</strong> <%= gig.description %></p>
         <p><strong>Price:</strong> $<%= gig.price %></p>
     </div>
+
+    <%- include('partials/footer') %>
+
 </body>
 </html>
