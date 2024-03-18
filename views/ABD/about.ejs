@@ -1,106 +1,113 @@
 <style>
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
 
-.about-section {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    text-align: left; /* Align text to the left for better readability */
-}
-
-.team-section {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.team-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.column {
-    flex: 0 0 calc(20% - 20px); /* Adjusted column width */
-    margin: 10px;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 5px; /* Increased padding for better spacing */
-    text-align: left; /* Align text to the left within cards */
-}
-
-.card img {
-    max-width: 40%;
-    float: left;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    margin-right: 15px;
-}
-
-.container1 {
-    text-align: left;
-}
-
-.container1 h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.container1 p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 10px;
-} 
-
-.button {
-    background-color: #2a9346e1;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button:hover {
-    background-color: #66b079e1;
-}
-
-.icon {
-    padding: 5px;
-    margin: 3px;
-    font-size: 18px;
-}
-
-.icon i {
-    font-size: 20px;
-}
-
-/* Media query for responsiveness */
-@media only screen and (max-width: 768px) {
-    .column {
-        flex: 0 0 calc(50% - 20px);
+    .container {
+        max-width: 100%;
+        padding: 20px;
     }
-}
 
-@media only screen and (max-width: 480px) {
-    /* .column {
-        flex: 0 0 100%;
-    } */
-}
+    .about-section {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        text-align: left; /* Align text to the left for better readability */
+    }
+
+    .team-section {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .team-section h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .column {
+        flex: 0 0 calc(20% - 20px); /* Adjusted column width */
+        margin: 10px;
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        text-align: left; /* Align text to the left within cards */
+        transition: transform 0.3s ease; /* Smooth transition */
+        max-width: 300px; /* Adjusted maximum width */
+        margin: auto;
+    }
+
+    .card img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .container1 {
+        text-align: left;
+    }
+
+    .container1 h2 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .container1 p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .title {
+        color: #999;
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .button {
+        background-color: #2a9346e1;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: #66b079e1;
+    }
+
+    .icon {
+        padding: 5px;
+        margin: 3px;
+        font-size: 18px;
+    }
+
+    .icon i {
+        font-size: 20px;
+    }
+
+    /* Media query for responsiveness */
+    @media only screen and (max-width: 768px) {
+        .column {
+            flex: 0 0 calc(50% - 20px);
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .column {
+            flex: 0 0 100%;
+        }
+    }
 
 </style>
 
