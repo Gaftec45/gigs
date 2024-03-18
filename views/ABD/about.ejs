@@ -1,102 +1,127 @@
 <style>
-    * {
-        box-sizing: border-box;
-    }
+/* General Reset */
+* {
+    box-sizing: border-box;
+}
 
-    .container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-    }
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
 
-    .about-section {
-        background-color: #fff;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 5px;
-    }
+.about-section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: left; /* Align text to the left for better readability */
+}
 
-    .team-section {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+.team-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    .team-section h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
+.team-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
 
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
+.column {
+    flex: 0 0 calc(20% - 20px); /* Adjusted column width */
+    margin: 10px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 5px; /* Increased padding for better spacing */
+    text-align: center; /* Align text to the left within cards */
+}
+
+.card img {
+    max-width: 40%;
+    height: 200px;
+    float: left;
+    border-radius: 5px;
+    margin-right: 10px;
+    /* margin-bottom: 20px; */
+}
+
+.container1 {
+    text-align: left;
+}
+
+.container1 h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.container1 p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 10px;
+} 
+
+/* .button {
+    background-color: #2a9346e1;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+} */
+
+.button:hover {
+    background-color: #66b079e1;
+}
+
+.icon {
+    padding: 5px;
+    margin: 3px;
+    font-size: 18px;
+}
+
+.icon i {
+    font-size: 20px;
+}
+
+/* Media query for responsiveness */
+@media only screen and (max-width: 768px) {
     .column {
-        flex: 0 0 calc(20.33% - 10px);
-        margin: 10px;
+        flex: 0 0 calc(50% - 20px);
     }
+}
 
-    .card {
-        background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        padding: 10px;
+@media only screen and (max-width: 480px) {
+    .column {
+        flex: 0 0 100%;
     }
+}
 
-    .card img {
-        max-width: 100%;
-        border-radius: 5px;
-        margin-bottom: 20px;
-    }
-
-    .container1 {
-        text-align: left;
-    }
-
-     .container1 h2 {
-        font-size: 20px;
-        margin-bottom: 5px;
-    }
-
-    .container1 p {
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 10px;
-    } 
-
-    .button {
-        background-color: #2a9346e1;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .button:hover {
-        background-color: #66b079e1;
-    }
-
-    /* Media query for responsiveness */
-    @media only screen and (max-width: 768px) {
-        .column {
-            flex: 0 0 calc(50% - 20px);
-        }
-    }
-
-    @media only screen and (max-width: 480px) {
-        .column {
-            flex: 0 0 100%;
-        }
-    }
 </style>
 
 <div class="container">
     <div class="about-section">
-        <h1>About Tega</h1>
-        <p>In a world that constantly shifts under the feet of progress, Tega Fate stands as a beacon of innovation and unmatched quality. Our journey began in [Starting Year], rooted in the simple yet powerful idea that the products we use every day should make life not just easier, but also more fulfilling. From our humble beginnings as a [Brief Description of Initial Product/Service Offering], we've grown into a trusted name across multiple industries, all the while staying true to our core belief: combining cutting-edge technology with exceptional craftsmanship to create products that matter.</p>
+        <h1>About Our Agency</h1>
+        <div class="icon">
+            <tr><i class="fa fa-map-marker"></i>  United Kingdom</tr>
+            <tr><i class="fa fa-comment"></i> English, French, Spanish, German</tr>
+            <tr><i class="fa fa-users"></i> 5 emtrloyees</tr>
+            <tr><i class="fa fa-calendar"></i> Established 2017</tr>
+        </div>
+        
+        <p>Discover the power of expert e-commerce sales specialists dedicated to propelling your online business to unparalleled success. At Tega Gig, we're not just another service provider; we're your strategic partners in driving revenue, boosting visibility, and maximizing ROI.</p>
     </div>
     
     <div class="team-section">
@@ -106,11 +131,9 @@
                 <div class="card">
                     <img src="/uploads/imageUrl-1709934138681.jpg" alt="Jane">
                     <div class="container1">
-                        <h2>Jane Doe</h2>
+                        <h2>GAF T.</h2>
                         <p class="title">CEO & Founder</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>jane@example.com</p> 
-                        <p><button class="button">Contact</button></p>
+                        <p>Meet Gaa T, Founder at The TegaFate. Specializes in business growth, brand design, web development, and project management, with 6 years of diverse experience.</p>
                     </div>
                 </div>
             </div>
@@ -119,11 +142,9 @@
                 <div class="card">
                     <img src="/uploads/imageUrl-1709931203803.jpg" alt="Mike">
                     <div class="container1">
-                        <h2>Mike Ross</h2>
-                        <p class="title">Art Director</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>mike@example.com</p>
-                        <p><button class="button">Contact</button></p>
+                        <h2>Mechiel S.M</h2>
+                        <p class="title">Web Designer</p>
+                        <p>Meet Machiel, our creative designer with 8 years of experience, crafts captivating business and marketing designs, enhancing our team's impact.</p>
                     </div>
                 </div>
             </div>
@@ -131,11 +152,9 @@
                 <div class="card">
                     <img src="/uploads/imageUrl-1709931203803.jpg" alt="Mike">
                     <div class="container1">
-                        <h2>Mike Ross</h2>
-                        <p class="title">Art Director</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>mike@example.com</p>
-                        <p><button class="button">Contact</button></p>
+                        <h2>Andrew J</h2>
+                        <p class="title">Shopify Expert</p>
+                        <p>Meet Andrew, Leading Shopify Development with expertise in crafting robust e-commerce solutions, driving innovation, and user experiences.</p>
                     </div>
                 </div>
             </div>
@@ -144,11 +163,19 @@
                 <div class="card">
                     <img src="/uploads/imageUrl-1709975906189.jpg" alt="John">
                     <div class="container1">
-                        <h2>John Doe</h2>
+                        <h2>Nora Walker</h2>
                         <p class="title">Designer</p>
-                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-                        <p>john@example.com</p>
-                        <p><button class="button">Contact</button></p>
+                        <p>Meet Nora, our skilled WordPress developer at The Webwily. With expertise in crafting seamless websites, he elevates digital experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <img src="/uploads/imageUrl-1709975906189.jpg" alt="John">
+                    <div class="container1">
+                        <h2>Nora Walker</h2>
+                        <p class="title">Designer</p>
+                        <p>Meet Nora, our skilled WordPress developer at The Webwily. With expertise in crafting seamless websites, he elevates digital experiences.</p>
                     </div>
                 </div>
             </div>
