@@ -20,12 +20,13 @@
 
 .team-section {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 50px; /* Increased margin for better separation */
 }
 
 .team-section h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 32px; /* Larger font size for the section heading */
+    margin-bottom: 30px; /* Increased margin for better spacing */
+    color: #333; /* Dark color for better contrast */
 }
 
 .row {
@@ -35,43 +36,48 @@
 }
 
 .column {
-    flex: 0 0 calc(20% - 20px); /* Adjusted column width */
+    flex: 0 0 calc(20% - 20px); /* Adjusted column width with margin */
     margin: 10px;
 }
 
 .card {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 5px; /* Increased padding for better spacing */
-    text-align: center; /* Align text to the left within cards */
+    background-color: #f9f9f9; /* Light gray background for cards */
+    border-radius: 8px; /* Rounded corners for cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Increased padding for content */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
 }
 
 .card img {
-    max-width: 40%;
-    height: 200px;
-    float: left;
-    border-radius: 5px;
-    margin-right: 10px;
-    /* margin-bottom: 20px; */
+    max-width: 100%;
+    border-radius: 50%; /* Rounded profile images */
+    margin-bottom: 20px;
 }
 
 .container1 {
-    text-align: left;
+    text-align: left; /* Align text to the left within cards */
 }
 
 .container1 h2 {
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 24px; /* Adjusted font size for names */
+    margin-bottom: 10px; /* Reduced margin for tighter spacing */
 }
 
 .container1 p {
     font-size: 16px;
     color: #666;
-    margin-top: 10px;
     margin-bottom: 10px;
-} 
+}
 
+.title {
+    color: #999; /* Lighter color for job titles */
+    font-size: 18px; /* Adjusted font size for job titles */
+    margin-bottom: 5px; /* Reduced margin for tighter spacing */
+}
 /* .button {
     background-color: #2a9346e1;
     color: #fff;
