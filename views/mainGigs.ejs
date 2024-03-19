@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Anta' rel='stylesheet'>
     <title>Gigs Section</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body{
             font-family: 'Anta'; font-size: 22px;
+            background-color: #ebebeba0;
+            padding: 2px;
+        }
+        .hh{
+            margin-top: 60px;
         }
         /* Row styles for gigs */
         .gig-row {
-            margin-top: 80px;
+            margin-top: 100px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
@@ -82,10 +93,45 @@
         .checked {
         color: orange;
         }
+
+            @media only screen and (max-width: 768px) {
+        .gig-row {
+            flex-direction: column; /* Stack columns vertically on smaller screens */
+            align-items: center; /* Center-align columns */
+            margin: 10px;
+        }
+
+        .gig-column {
+            flex: 0 0 calc(100% - 20px); /* Make columns full width with some margin */
+            margin-bottom: 20px; /* Add margin to the bottom of each column */
+        }
+
+        .gig-card img {
+            height: auto; /* Allow image height to adjust based on content */
+            margin-bottom: 10px; /* Reduce margin below the image */
+        }
+
+        .gig-title {
+            font-size: 16px; /* Decrease font size for better readability */
+            margin-bottom: 5px; /* Reduce margin below the title */
+        }
+
+        .gig-description {
+            font-size: 14px; /* Decrease font size for better readability */
+            margin-bottom: 10px; /* Reduce margin below the description */
+        }
+
+        .gig-button {
+            padding: 8px 16px; /* Adjust button padding */
+            font-size: 14px; /* Decrease font size for better readability */
+        }
+    }
     </style>
 </head>
 <body>
+
     <%- include('partials/navBar') %>
+<div class="hh">
     <section class="gig-row">
     <% if (gigs && gigs.length > 0) { %>
         <% for (var i = 0; i < gigs.length; i++) { %>
@@ -110,6 +156,9 @@
         <p class="no-gigs-message">No gigs found.</p>
     <% } %> 
 </section>
+</div>
+
+    <%- include('partials/footer') %>
 
 </body>
 </html>

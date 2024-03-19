@@ -6,7 +6,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title><%= gig.title %></title>
     <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Anta';
+            background-color: #ebebeba0;
+            padding: 2px;
+        }
+        .mm{
+            margin-top: 65px;
+            padding: 10px;
+        }
         h1 {
             text-align: center;
             margin-top: 20px;
@@ -46,7 +60,7 @@
 </head>
 <body>
     <%- include('partials/navBar') %>
-
+    <div class="mm">
     <p> <%= gig.category %> / <%= gig.subcategory %></p>
     <h1><%= gig.title %></h1>
     <div class="gig-details">
@@ -57,7 +71,7 @@
         <p><strong><%= gig.description %></strong></p>
         <p><strong>Price:</strong> $<%= gig.price %></p>
     </div>
-
+    </div>
     <%- include('partials/footer') %>
 
 </body>
