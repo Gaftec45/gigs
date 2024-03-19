@@ -22,6 +22,11 @@
     transition: transform 0.3s ease; /* Add a smooth transition effect */
 }
 
+.gig-card  a{
+    text-decoration: none;
+    color: black;
+}
+
 /* Gig image styles */
 .gig-card img {
     width: 100%;
@@ -97,6 +102,7 @@
             <% gigs.slice(0, 3).forEach(gig => { %>
                 <div class="gig-column">
                     <div class="gig-card">
+                        <a href="/gigs/<%= gig._id %>">
                         <% if (gig.imageUrl) { %>
                             <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
                         <% } %>
@@ -107,6 +113,7 @@
                             <p class="gig-price">Price: $<%= gig.price %></p>
                             <!-- <button class="gig-button">Order Now</button> -->
                         </div>
+                        </a>
                     </div>
                 </div>
             <% }) %>

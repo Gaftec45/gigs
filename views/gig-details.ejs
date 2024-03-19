@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title><%= gig.title %></title>
+    <title><%= gig.title %> | Tega Gigs</title>
     <style>
          * {
             margin: 0;
@@ -31,7 +31,7 @@
             max-width: 600px;
             margin: 20px auto;
             background-color: #fff;
-            padding: 20px;
+            padding: 10px;
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -62,7 +62,7 @@
     <%- include('partials/navBar') %>
     <div class="mm">
     <p> <%= gig.category %> / <%= gig.subcategory %></p>
-    <h1><%= gig.title %></h1>
+    <h1><%= gig.title %> - Tega Gig's</h1>
     <div class="gig-details">
         <% if (gig.imageUrl) { %>
             <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
