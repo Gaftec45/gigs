@@ -10,6 +10,7 @@
         h1 {
             text-align: center;
             margin-top: 20px;
+            font-size: 25px;
         }
 
         .gig-details {
@@ -41,7 +42,7 @@
     <%- include('partials/navBar') %>
 
     <p> <%= gig.category %> / <%= gig.subcategory %></p>
-    <h1><%= gig.title %> - Gig Details</h1>
+    <h1><%= gig.title %></h1>
     <div class="gig-details">
         <% if (gig.imageUrl) { %>
             <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
