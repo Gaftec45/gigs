@@ -1,81 +1,100 @@
 <style>
-    .footer {
-        background-color: #ebebeb;
-        color: #000000;
-        font-size: 15px;
-        line-height: 1.6;
-        padding: 40px 0;
-    }
+/* Default styles */
+
+.footer {
+    background-color: #ebebeb;
+    color: #000000;
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 40px 0;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px 10px;
+}
+
+.footer-section h3 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.footer-section a {
+    color: #000000;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-section a:hover {
+    color: #494949;
+}
+
+.newsletter-form {
+    margin-top: 20px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+    width: calc(100% - 120px);
+}
+
+.newsletter-form button {
+    padding: 10px;
+    background-color: #000000;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.newsletter-form button:hover {
+    background-color: #c0392b;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #b1efff;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #000000;
+    padding-top: 20px;
+}
+
+/* Media queries for screen optimization */
+
+@media only screen and (max-width: 768px) {
     .footer-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        max-width: 1200px;
-        margin: auto;
-        padding: 0 20px;
+        flex-direction: column;
+        align-items: center;
     }
+
     .footer-section {
-        flex: 1;
-        min-width: 250px;
-        margin: 20px 10px;
-    }
-    .footer-section h3 {
-        color: #000000;
-        margin-bottom: 20px;
-    }
-    .footer-section a {
-        color: #000000;
-        text-decoration: none;
-        display: block;
-        margin-bottom: 10px;
-    }
-    .footer-section a:hover {
-        color: #494949;
-    }
-    .newsletter-form {
-        margin-top: 20px;
-    }
-    .newsletter-form input[type="email"] {
-        padding: 10px;
-        border: none;
-        margin-right: 10px;
-        width: calc(100% - 120px);
-    }
-    .newsletter-form button {
-        padding: 10px;
-        background-color: #000000;
-        border: none;
-        color: white;
-        cursor: pointer;
-    }
-    .newsletter-form button:hover {
-        background-color: #c0392b;
-    }
-    .social-icons {
-        margin-top: 20px;
-    }
-    .social-icons a {
-        margin: 0 10px;
-        color: #000000;
-        text-decoration: none;
-    }
-    .social-icons a:hover {
-        color: #b1efff;
-    }
-    .footer-bottom {
         text-align: center;
-        color: #000000;
-        padding-top: 20px;
     }
-    @media (max-width: 768px) {
-        .footer-container {
-            flex-direction: column;
-            align-items: center;
-        }
-        .newsletter-form input[type="email"] {
-            width: calc(100% - 90px);
-        }
-    }
+}
 </style>
 
 <div class="footer">

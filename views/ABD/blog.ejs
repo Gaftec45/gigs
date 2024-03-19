@@ -1,49 +1,64 @@
 <style>
-        .container {
-            max-width: 1200px; /* Adjusted for better alignment of cards */
-            margin: auto;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center; /* Centering the blog post cards */
-        }
+    .container {
+        max-width: 1200px; /* Adjusted for better alignment of cards */
+        margin: auto;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centering the blog post cards */
+    }
 
+    .blog-post {
+        flex: 0 0 calc(33.33% - 20px); /* Adjusted column width with margin */
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        padding: 10px;
+        text-align: left; /* Aligns text inside the card */
+    }
+
+    .blog-post img {
+        width: 100%;
+        height: auto; /* Adjusted for responsiveness */
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .blog-post h2 {
+        font-size: 17px; /* Mimics the gig-title setup */
+        margin-bottom: 10px;
+        color: #000000; /* A touch of color */
+    }
+
+    .blog-post p {
+        font-size: 16px;
+        color: #666;
+        margin-bottom: 10px; /* Keeps uniform spacing */
+    }
+
+    .no-posts-message {
+        width: 100%; /* Ensures the message centers correctly */
+        text-align: center;
+        font-size: 18px;
+        color: #888;
+        margin-top: 50px;
+    }
+
+    /* Media query for responsiveness */
+    @media only screen and (max-width: 768px) {
         .blog-post {
-            flex: 0 0 300px; /* Mimics the gig-column setup */
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin: 10px;
-            padding: 10px;
-            text-align: left; /* Aligns text inside the card */
+            flex: 0 0 calc(50% - 20px); /* Adjusted column width for smaller screens */
         }
+    }
 
-        .blog-post img {
-            width: 100%;
-            height: auto; /* Adjusted for responsiveness */
-            border-radius: 5px;
-            margin-bottom: 10px;
+    @media only screen and (max-width: 480px) {
+        .blog-post {
+            flex: 0 0 100%; /* Full width for extra small screens */
+            margin: 10px 0; /* Reduce margin for extra small screens */
         }
+    }
 
-        .blog-post h2 {
-            font-size: 17px; /* Mimics the gig-title setup */
-            margin-bottom: 10px;
-            color: #000000; /* A touch of color */
-        }
-
-        .blog-post p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 10px; /* Keeps uniform spacing */
-        }
-
-        .no-posts-message {
-            width: 100%; /* Ensures the message centers correctly */
-            text-align: center;
-            font-size: 18px;
-            color: #888;
-            margin-top: 50px;
-        }
 </style>
 </head>
 <body>
