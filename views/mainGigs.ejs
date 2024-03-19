@@ -21,7 +21,7 @@
         }
         /* Row styles for gigs */
         .gig-row {
-            margin-top: 100px;
+            margin-top: 20px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-evenly;
@@ -132,7 +132,7 @@
 
     <%- include('partials/navBar') %>
 <div class="hh">
-    <p style="text-align: center;">Most Popular Gig's</p>
+    <p style="text-align: center; font-size: 30px;">Most Popular Gig's</p>
     <section class="gig-row">
     <% if (gigs && gigs.length > 0) { %>
         <% for (var i = 0; i < gigs.length; i++) { %>
