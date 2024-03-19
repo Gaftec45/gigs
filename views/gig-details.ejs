@@ -46,7 +46,7 @@
         <% if (gig.imageUrl) { %>
             <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
         <% } %>
-        <p><strong>Description:</strong> <%= gig.description %></p>
+        <p><%= gig.description %></p>
         <p><strong>Price:</strong> $<%= gig.price %></p>
     </div>
 
