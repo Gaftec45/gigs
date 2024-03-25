@@ -144,10 +144,10 @@
                             <img class="gig-image" src="<%= gig.imageUrl.replace('public', '') %>" alt="<%= gig.title %> image">
                         <% } %>
                         <div class="gig-container">
-                            <h3 class="gig-title"><%= gig.title %></h3>
-                            <p class="gig-price">Price: $<%= gig.price %></p>
-                            <p style="font-size: 15px;"><span class="fa fa-star checked"></span> 5.0(5)</p>
                             <p><%= gig.category %></p>
+                            <h3 class="gig-title"><%= gig.title %></h3>
+                            <p class="gig-price">Starting: $<%= gig.pricingPackage.basicPrice %></p>
+                            <p style="font-size: 15px;"><span class="fa fa-star checked"></span> 5.0(5)</p>
                         </div>
                     </a>
                 </div>

@@ -3,126 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create a Gig</title>
+    <title>Add Gig</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #f4f4f4;
+            padding: 20px;
             margin: 0;
-            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         h1 {
+            color: #333;
             text-align: center;
-            margin-top: 50px;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         label {
-            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
         }
 
         input[type="text"],
         input[type="number"],
         textarea,
-        input[type="file"],
         select {
             width: 100%;
-            padding: 10px;
-            margin-top: 5px;
+            padding: 8px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Fixes padding and border issues */
         }
 
         textarea {
             height: 100px;
-            resize: none;
+            resize: vertical; /* Allows vertical resizing, none for horizontal */
         }
 
-        button[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 14px 20px;
-            margin-top: 10px;
+        fieldset {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            padding: 0 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
             border: none;
             border-radius: 5px;
+            background-color: #5cb85c;
+            color: white;
             cursor: pointer;
-            width: 100%;
             font-size: 16px;
-            transition: background-color 0.3s;
         }
 
-        button[type="submit"]:hover {
-            background-color: #45a049;
+        button:hover {
+            background-color: #4cae4c;
         }
     </style>
 </head>
 <body>
-    <h1>Create a New Gig</h1>
-    <form action="/create-gig" method="POST" enctype="multipart/form-data" id="gigForm">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br>
-      
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description" required></textarea><br>
-      
-        <label for="price">Price:</label><br>
-        <input type="number" id="price" name="price" required><br>
-      
-        <label for="imageUrl">Image (optional):</label><br>
-        <input type="file" id="imageUrl" name="imageUrl"><br>
-      
-        <label for="category">Category:</label><br>
-        <select id="category" name="category" required>
-            <option value="">Select a category</option>
-            <option value="Graphics & Designs">Graphics & Designs</option>
-            <option value="Programming & Tech">Programming & Tech</option>
-            <option value="Digital Marketing">Digital Marketing</option>
-            <option value="Video & Animation">Video & Animation</option>
-            <option value="Writing & Translation">Writing & Translation</option>
-        </select><br>
-      
-        <label for="subcategory">Sub-category:</label><br>
-        <select id="subcategory" name="subcategory" required>
-            <option value="">Select a sub-category</option>
-        </select><br>
-      
-        <button type="submit">Create Gig</button>
-    </form>
+    <div class="container">
+        <h1>Add a New Gig</h1>
+        <form action="/create-gig" method="POST">
+            <div>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div>
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="Graphics & Designs">Graphics & Designs</option>
+                    <option value="Programming & Tech">Programming & Tech</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="Video & Animation">Video & Animation</option>
+                    <option value="Writing & Translation">Writing & Translation</option>
+                </select>
+            </div>
+            <div>
+                <label for="subcategory">Subcategory:</label>
+                <select id="subcategory" name="subcategory" required>
+                    <!-- Subcategory options will be dynamically populated here -->
+                </select>
+            </div>
 
+            <!-- Pricing Package Basic -->
+            <fieldset>
+                <legend>Basic Package</legend>
+                <div>
+                    <label for="basicTitle">Title:</label>
+                    <input type="text" id="basicTitle" name="pricingPackage[basicTitle]">
+                </div>
+                <div>
+                    <label for="basicDescription">Description:</label>
+                    <input type="text" id="basicDescription" name="pricingPackage[basicDescription]">
+                </div>
+                <div>
+                    <label for="basicPrice">Price:</label>
+                    <input type="number" id="basicPrice" name="pricingPackage[basicPrice]">
+                </div>
+                <div>
+                    <label for="basicDeliveryDays">Delivery Days:</label>
+                    <input type="number" id="basicDeliveryDays" name="pricingPackage[basicDeliveryDays]">
+                </div>
+            </fieldset>
+
+            <!-- Pricing Package Standard -->
+            <fieldset>
+                <legend>Standard Package</legend>
+                <div>
+                    <label for="standardTitle">Title:</label>
+                    <input type="text" id="standardTitle" name="pricingPackage[standardTitle]">
+                </div>
+                <div>
+                    <label for="standardDescription">Description:</label>
+                    <input type="text" id="standardDescription" name="pricingPackage[standardDescription]">
+                </div>
+                <div>
+                    <label for="standardPrice">Price:</label>
+                    <input type="number" id="standardPrice" name="pricingPackage[standardPrice]">
+                </div>
+                <div>
+                    <label for="standardDeliveryDays">Delivery Days:</label>
+                    <input type="number" id="standardDeliveryDays" name="pricingPackage[standardDeliveryDays]">
+                </div>
+            </fieldset>
+
+            <!-- Pricing Package Premium -->
+            <fieldset>
+                <legend>Premium Package</legend>
+                <div>
+                    <label for="premiumTitle">Title:</label>
+                    <input type="text" id="premiumTitle" name="pricingPackage[premiumTitle]">
+                </div>
+                <div>
+                    <label for="premiumDescription">Description:</label>
+                    <input type="text" id="premiumDescription" name="pricingPackage[premiumDescription]">
+                </div>
+                <div>
+                    <label for="premiumPrice">Price:</label>
+                    <input type="number" id="premiumPrice" name="pricingPackage[premiumPrice]">
+                </div>
+                <div>
+                    <label for="premiumDeliveryDays">Delivery Days:</label>
+                    <input type="number" id="premiumDeliveryDays" name="pricingPackage[premiumDeliveryDays]">
+                </div>
+            </fieldset>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+
+            <div>
+                <label for="imageUrl">Image URL:</label>
+                <input type="file" id="imageUrl" name="imageUrl">
+            </div>
+            <br>
+            <button type="submit">Add Gig</button>
+        </form>
+    </div>
     <script>
-        // JavaScript code to populate sub-category select based on main category selection
         document.getElementById('category').addEventListener('change', function() {
             var category = this.value;
             var subcategorySelect = document.getElementById('subcategory');
             subcategorySelect.innerHTML = ''; // Clear previous options
             
-            var subcategories = {};
-            subcategories['Graphics & Designs'] = ['Logo Design', 'Illustration', 'Business Cards & Stationery'];
-            subcategories['Programming & Tech'] = ['Web Programming', 'Mobile Apps', 'Desktop Applications'];
-            subcategories['Digital Marketing'] = ['Social Media Marketing', 'SEO', 'Email Marketing', 'Ecommerce Marketing'];
-            subcategories['Video & Animation'] = ['Whiteboard & Animated Explainers', 'Promotional Videos', 'Video Editing'];
-            subcategories['Writing & Translation'] = ['Articles & Blog Posts', 'Resumes & Cover Letters', 'Translation'];
-
-            if (subcategories[category]) {
-                subcategories[category].forEach(function(subcategory) {
-                    var option = document.createElement('option');
-                    option.value = subcategory;
-                    option.textContent = subcategory;
-                    subcategorySelect.appendChild(option);
-                });
-            }
+            var subcategories = {
+                'Graphics & Designs': ['Logo Design', 'Illustration', 'Business Cards & Stationery'],
+                'Programming & Tech': ['Web Programming', 'Mobile Apps', 'Desktop Applications'],
+                'Digital Marketing': ['Social Media Marketing', 'SEO', 'Email Marketing', 'Ecommerce Marketing'],
+                'Video & Animation': ['Whiteboard & Animated Explainers', 'Promotional Videos', 'Video Editing'],
+                'Writing & Translation': ['Articles & Blog Posts', 'Resumes & Cover Letters', 'Translation']
+            };
+    
+            var subcategoryOptions = subcategories[category] || []; // Get subcategories for selected category
+    
+            subcategoryOptions.forEach(function(subcategory) {
+                var option = document.createElement('option');
+                option.value = subcategory;
+                option.textContent = subcategory;
+                subcategorySelect.appendChild(option);
+            });
         });
-    </script>
+    </script>    
 </body>
 </html>

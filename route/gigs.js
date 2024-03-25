@@ -41,14 +41,16 @@ router.get('/gigs', async (req, res) => {
 // Handle form submission for a new gig
 router.post('/create-gig', upload.single('imageUrl'), async (req, res) => {
     try {
-        const { title, description, price,  category, subcategory } = req.body;
+        const gigs = await gigList.find(); // Example: Assuming you have a Gig model and you are using Mongoose
+
+        const { title, description, pricingPackage,  category, subcategory } = req.body;
         let imageUrl = '';
         if (req.file) {
             imageUrl = req.file.path; // Adjust based on your needs
         }
-        const newGig = new gigList({ title, description, price, category, subcategory,  imageUrl });
+        const newGig = new gigList({ title, description, pricingPackage, category, subcategory,  imageUrl });
         await newGig.save();
-        res.render('index'); // Redirect to a page where you list all gigs or to the created gig
+        res.redirect('/gigs'); // Redirect to a page where you list all gigs or to the created gig
     } catch (error) {
         res.status(400).send(error.message);
     }
