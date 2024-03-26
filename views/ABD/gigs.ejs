@@ -69,7 +69,9 @@
 .gig-button:hover {
     background-color: #66b079e1;
 }
-
+.cheked {
+    color: #ffa500
+}
 /* Media query for smaller screens */
 @media only screen and (max-width: 768px) {
     .gig-column {
@@ -110,7 +112,7 @@
                             <p>Best Seller</p>
                             <h4 class="gig-title"><%= gig.title %></h4>
                             <p class="gig-price">Starting at : $<%= gig.pricingPackage.basicPrice %></p>
-                            <p style="font-size: 15px; color: #ffa500;"><span class="fa fa-star checked"></span> 5.0</p>
+                            <p style="font-size: 15px;"><span class="fa fa-star checked"></span> 5.0</p>
                             <!-- <button class="gig-button">Order Now</button> -->
                         </div>
                         </a>
