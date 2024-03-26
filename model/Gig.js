@@ -9,6 +9,10 @@ const gigSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    imageUrl: {
+        type: String,
+        required : true
+      },
     category: {
         type: String,
         required: true,
@@ -19,21 +23,19 @@ const gigSchema = new mongoose.Schema({
         required: true,
     },
     pricingPackage: {
-        // Include pricing package fields here
         basicTitle: String,
         basicDescription: String,
         basicPrice: Number,
-        basicDeliveryDays: String,
+        basicDeliveryDays: Number, // Assuming it should be a number
         standardTitle: String,
         standardDescription: String,
         standardPrice: Number,
-        standardDeliveryDays: String,
+        standardDeliveryDays: Number, // Assuming it should be a number
         premiumTitle: String,
         premiumDescription: String,
         premiumPrice: Number,
-        premiumDeliveryDays: String,
+        premiumDeliveryDays: Number, // Assuming it should be a number
     },
-    imageUrl: String, // Optional, based on your needs
     createdAt: {
         type: Date,
         default: Date.now,

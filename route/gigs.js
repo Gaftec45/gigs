@@ -7,20 +7,19 @@ const gigList = require('../model/Gig'); // Adjust the path based on your projec
 // Multer setup for image upload
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'public/uploads/'); // Make sure this directory exists
+      cb(null, 'public/uploads/');
     },
     filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
-});
+  });
 
-const upload = multer({ 
+const upload = multer({
     storage: storage,
-    limits: { fileSize: 1000000 }, // Example: limit file size to 1MB
-    // fileFilter: function(req, file, cb) {
-    //     checkFileType(file, cb);
-    // }
-});
+    limits: { fileSize: 1000000 }, // for example, limit file size to 1MB
+    // Add file filter here if needed, to handle file types
+  }).single('imageUrl'); // Make sure 'imageUrl' matches the name attribute in your form
+
 router.get('/create-gig', (req, res) => {
     res.render('createGig'); // You'll need to create this EJS view
 });
@@ -39,15 +38,14 @@ router.get('/gigs', async (req, res) => {
 });
 
 // Handle form submission for a new gig
-router.post('/create-gig', upload.single('imageUrl'), async (req, res) => {
+router.post('/create-gig', upload, async (req, res) => {
     try {
-        const gigs = await gigList.find(); // Example: Assuming you have a Gig model and you are using Mongoose
-
         const { title, description, pricingPackage,  category, subcategory } = req.body;
-        let imageUrl = '';
+        const imageUrl = req.file ? req.file.path : '';
+    /*    let imageUrl = '';
         if (req.file) {
             imageUrl = req.file.path; // Adjust based on your needs
-        }
+        }*/
         const newGig = new gigList({ title, description, pricingPackage, category, subcategory,  imageUrl });
         await newGig.save();
         res.redirect('/gigs'); // Redirect to a page where you list all gigs or to the created gig
