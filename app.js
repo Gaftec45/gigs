@@ -5,7 +5,7 @@ const routes = require('./route/blog');
 const gigRoute = require('./route/gigs')
 const BlogPost = require('./model/Blog');
 const Gig = require('./model/Gig');
-const MONGOURI = process.env.MONGODB || process.env.MONGO_URI;
+const MONGOURI = process.env.MONGO_URI;
 // const bodyParser = require('body-parser')
 
 const app = express();
@@ -34,6 +34,9 @@ app.get('/', async (req, res) => {
       console.error('Error fetching data:', err);
       res.status(500).send('Error fetching data');
     }
+});
+app.get('*', (req, res) =>{
+  res.render('404');
 });
 
 
