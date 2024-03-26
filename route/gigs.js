@@ -67,8 +67,11 @@ router.get('/gigs/:id', async (req, res) => {
             return res.status(404).json({ error: 'Gig not found' });
         }
 
-        // If the gig exists, send it as a response
-        res.render('gig-details', { gig: gig });
+        // Query the database for feedbacks related to this gig
+        const feedbacks = await feedBack.find({ gigId: gig._id });
+
+        // If the gig exists, render the gig-details template with the gig and feedbacks data
+        res.render('gig-details', { gig: gig, feedbacks: feedbacks });
     } catch (error) {
         // Handle any errors that occur during the process
         console.error('Error retrieving gig:', error);
