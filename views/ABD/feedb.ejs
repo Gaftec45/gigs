@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        li p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        li p strong {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stars {
+            color: gold;
+            margin-right: 5px;
+        }
+
+        .feedback-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .feedback-details {
+            flex: 1;
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .feedback-header p {
+            margin: 0;
+        }
+
+        .timestamp {
+            color: #777;
+        }
+        .helpful-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .helpful-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .helpful-btn i {
+            margin-right: 5px;
+        }
+
+        .thumbs-up {
+            color: #2ecc71;
+        }
+
+        .thumbs-down {
+            color: #e74c3c;
+        }
+        .review{
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="review">
+    <h1>Feedback</h1>
+    <ul>
+        <% feedbacks.forEach((item) => { %>
+            <li>
+                <div class="feedback-info">
+                    <img class="avatar" src="/uploads/imageUrl-1709934138681.jpg" alt="<%= item.name %>">
+                    <div class="feedback-details">
+                        <div class="feedback-header">
+                            <p><strong><%= item.name %></strong> from <%= item.country %></p>
+                            <p class="timestamp"><%= item.prettyCreatedAt %></p>
+                        </div>
+                        <div class="stars">
+                            <% for(let i = 0; i < item.starRating; i++){ %>
+                                <i class="fas fa-star"></i>
+                            <% } %>
+                            <% for(let i = item.starRating; i < 5; i++){ %>
+                                <i class="far fa-star"></i>
+                            <% } %>
+                        </div>
+                    <p><%= item.message %></p>
+                    </div>
+                </div>
+                <div class="feedback-actions">
+                    <p>Helpful?<span class="helpful-btn" data-feedback-id="<%= item._id %>" data-vote="up">
+                        <i class="fas fa-thumbs-up"></i> Yes
+                    </span>
+                    <span class="helpful-btn" data-feedback-id="<%= item._id %>" data-vote="down">
+                        <i class="fas fa-thumbs-down"></i> No
+                    </span> </p>
+                </div>
+            </li>
+        <% }); %>
+    </ul>
+    </div>
+
+    <script>
+        // Define the timeSince function
+        function timeSince(date) {
+            const seconds = Math.floor((new Date() - new Date(date)) / 1000);
+            if (seconds < 60) {
+                return "Just now";
+            } else if (seconds < 3600) {
+                return `${Math.floor(seconds / 60)} minute${Math.floor(seconds / 60) > 1 ? 's' : ''} ago`;
+            } else if (seconds < 86400) {
+                return `${Math.floor(seconds / 3600)} hour${Math.floor(seconds / 3600) > 1 ? 's' : ''} ago`;
+            } else {
+                return `${Math.floor(seconds / 86400)} day${Math.floor(seconds / 86400) > 1 ? 's' : ''} ago`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const helpfulBtns = document.querySelectorAll('.helpful-btn');
+            helpfulBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const feedbackId = this.getAttribute('data-feedback-id');
+                    const vote = this.getAttribute('data-vote');
+                    // You can perform AJAX request to record the vote and update UI accordingly
+                    console.log(`User voted ${vote} for feedback with ID: ${feedbackId}`);
+                    // Example: Send vote data to server using fetch or XMLHttpRequest
+                });
+            });
+        });
+
+        // Add your existing event listeners or other JavaScript functionality here
+    </script>
+</body>
+</html>

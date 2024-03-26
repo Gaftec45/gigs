@@ -5,7 +5,8 @@ const routes = require('./route/blog');
 const gigRoute = require('./route/gigs')
 const BlogPost = require('./model/Blog');
 const Gig = require('./model/Gig');
-const MONGOURI = process.env.MONGO_URI;
+const feedBack = require('./route/feedBack');
+const MONGOURI = process.env.MONGODB || process.env.MONGO_URI;
 // const bodyParser = require('body-parser')
 
 const app = express();
@@ -23,6 +24,7 @@ mongoose.connect(MONGOURI)
 
 // Routes
 app.use('/', gigRoute)
+app.use('/', feedBack);
 app.use('/', routes);
 app.get('/', async (req, res) => {
     try {
@@ -32,7 +34,7 @@ app.get('/', async (req, res) => {
       res.render('index', { blogs: blogPosts, gigs: gigs });
     } catch (err) {
       console.error('Error fetching data:', err);
-      res.status(500).send('Error fetching data');
+      res.status(500).send('Error fetching data'); 
     }
 });
 app.get('*', (req, res) =>{

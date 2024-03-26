@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const gigList = require('../model/Gig'); // Adjust the path based on your project structure
+const feedBack = require('../model/feedBack');
 
 // Multer setup for image upload
 const storage = multer.diskStorage({
@@ -16,13 +17,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 1000000 }, // for example, limit file size to 1MB
-    // Add file filter here if needed, to handle file types
-  }).single('imageUrl'); // Make sure 'imageUrl' matches the name attribute in your form
+    limits: { fileSize: 1000000 },
+  }).single('imageUrl');
 
 router.get('/create-gig', (req, res) => {
-    res.render('createGig'); // You'll need to create this EJS view
-});
+    res.render('createGig');});
 
 router.get('/gigs', async (req, res) => {
     try {

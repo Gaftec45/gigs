@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .star-rating {
+            display: inline-block;
+            direction: rtl;
+        }
+
+        .star-rating input[type="radio"] {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 24px;
+            cursor: pointer;
+            direction: ltr;
+        }
+
+        .star-rating label:hover,
+        .star-rating label:hover ~ label,
+        .star-rating input[type="radio"]:checked ~ label {
+            color: gold;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback</h1>
+    <form action="/feedback" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br>
+
+        <div class="star-rating">
+            <!-- Added aria-label for accessibility -->
+            <input type="radio" id="1-star" name="starRating" value="1" required aria-label="1 star">
+            <label for="1-star"><i class="fas fa-star"></i></label>
+
+            <input type="radio" id="2-star" name="starRating" value="2" required aria-label="2 stars">
+            <label for="2-star"><i class="fas fa-star"></i></label>
+
+            <input type="radio" id="3-star" name="starRating" value="3" required aria-label="3 stars">
+            <label for="3-star"><i class="fas fa-star"></i></label>
+
+            <input type="radio" id="4-star" name="starRating" value="4" required aria-label="4 stars">
+            <label for="4-star"><i class="fas fa-star"></i></label>
+
+            <input type="radio" id="5-star" name="starRating" value="5" required aria-label="5 stars">
+            <label for="5-star"><i class="fas fa-star"></i></label>
+        </div>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (event) => {
+            const selectedRating = document.querySelector('.star-rating input[type="radio"]:checked');
+            if (!selectedRating) {
+                event.preventDefault(); // Prevent form submission if no rating is selected
+                // Implement or call your custom alert/modal here
+                console.log('Please select a rating before submitting.'); // Placeholder for custom user feedback
+            }
+        });
+    </script>
+</body>
+</html>
