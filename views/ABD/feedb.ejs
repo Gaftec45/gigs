@@ -111,39 +111,44 @@
     <div class="review">
     <h1>Feedback</h1>
     <ul>
-        <% feedbacks.forEach((item) => { %>
-            <li>
-                <div class="feedback-info">
-                    <img class="avatar" src="/uploads/imageUrl-1709934138681.jpg" alt="<%= item.name %>">
-                    <div class="feedback-details">
-                        <div class="feedback-header">
-                            <p><strong><%= item.name %></strong> from <%= item.country %></p>
-                            <p class="timestamp"><%= item.prettyCreatedAt %></p>
+        <% if (feedbacks.length === 0) { %>
+            <!-- Display a message if there are no feedbacks -->
+            <p>No feedback yet. Be the first to <a href="/gigs/<%= gig._id %>/add/feedback">Leave feedback</a></p>
+        <% } else { %>
+            <!-- Iterate over feedbacks and display them -->
+            <% feedbacks.forEach((item) => { %>
+                <li>
+                    <div class="feedback-info">
+                        <img class="avatar" src="/uploads/imageUrl-1709934138681.jpg" alt="<%= item.name %>">
+                        <div class="feedback-details">
+                            <div class="feedback-header">
+                                <p><strong><%= item.name %></strong> from <%= item.country %></p>
+                                <p class="timestamp"><%= item.prettyCreatedAt %></p>
+                            </div>
+                            <div class="stars">
+                                <% for(let i = 0; i < item.starRating; i++){ %>
+                                    <i class="fas fa-star"></i>
+                                <% } %>
+                                <% for(let i = item.starRating; i < 5; i++){ %>
+                                    <i class="far fa-star"></i>
+                                <% } %>
+                            </div>
+                        <p><%= item.message %></p>
                         </div>
-                        <div class="stars">
-                            <% for(let i = 0; i < item.starRating; i++){ %>
-                                <i class="fas fa-star"></i>
-                            <% } %>
-                            <% for(let i = item.starRating; i < 5; i++){ %>
-                                <i class="far fa-star"></i>
-                            <% } %>
-                        </div>
-                    <p><%= item.message %></p>
                     </div>
-                </div>
-                <div class="feedback-actions">
-                    <p>Helpful?<span class="helpful-btn" data-feedback-id="<%= item._id %>" data-vote="up">
-                        <i class="fas fa-thumbs-up"></i> Yes
-                    </span>
-                    <span class="helpful-btn" data-feedback-id="<%= item._id %>" data-vote="down">
-                        <i class="fas fa-thumbs-down"></i> No
-                    </span> </p>
-                </div>
-            </li>
-        <% }); %>
+                    <div class="feedback-actions">
+                        <p>Helpful?<span class="helpful-btn" data-feedback-id="<%= item._id %>" data-vote="up">
+                            <i class="fas fa-thumbs-up"></i> Yes
+                        </span>
+                        <span class="helpful-btn" data-feedback-id="<%= item._id %>" data-vote="down">
+                            <i class="fas fa-thumbs-down"></i> No
+                        </span> </p>
+                    </div>
+                </li>
+            <% }); %>
+        <% } %>
     </ul>
-    </div>
-
+</div>
     <script>
         // Define the timeSince function
         function timeSince(date) {

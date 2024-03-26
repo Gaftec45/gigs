@@ -1,6 +1,9 @@
+// routes/gigRoutes.js
+
 const express = require('express');
 const router = express.Router();
-const Feedback = require('../model/feedBack');
+const Gig = require('../model/Gig');
+const Feedback = require('../model/Feedback');
 
 // Define the timeSince function
 function timeSince(date) {
@@ -16,12 +19,54 @@ function timeSince(date) {
     }
 }
 
-router.get('/feedback', (req, res) => {
-    const selectedRating = req.query.rating || ''; // Get the selected rating from query parameters (if any)
-    res.render('feedBack', { selectedRating: selectedRating });
+// Route to get a specific gig and show the feedback form
+router.get('/gigs/:id/add/feedback', async (req, res) => {
+    try {
+        const gigId = req.params.id;
+        const gig = await Gig.findById(gigId);
+
+        if (!gig) {
+            return res.status(404).send('Gig not found');
+        }
+
+        res.render('feedback', { gig: gig });
+    } catch (error) {
+        console.error('Error fetching gig details:', error);
+        res.status(500).send('Error loading page');
+    }
 });
 
-// Handle feedback submission
+// Handle feedback submission for a specific gig
+router.post('/gigs/:id/add/feedback', async (req, res) => {
+    try {
+        const { name, email, country, message, starRating } = req.body;
+        const gigId = req.params.id;
+
+        const newFeedback = new Feedback({
+            gigId,
+            name,
+            email,
+            country,
+            message,
+            starRating
+        });
+
+        await newFeedback.save();
+        console.log(newFeedback)
+        res.redirect('/gigs');
+    } catch (error) {
+        console.error('Error submitting feedback:', error);
+        res.status(500).send('Failed to submit feedback. Please try again later.');
+    }
+});
+
+// Route to render a general feedback form
+router.get('/feedback', (req, res) => {
+    const selectedRating = req.query.rating || ''; // Get the selected rating from query parameters (if any)
+    res.render('feedback', { selectedRating: selectedRating });
+});
+
+// Handle submission of the general feedback form
 router.post('/feedback', async (req, res) => {
     try {
         // Extract data from the request body
@@ -39,7 +84,7 @@ router.post('/feedback', async (req, res) => {
         // Save the feedback to the database
         await newFeedback.save();
 
-        // Redirect to review page after submission
+        // Redirect to a review page after submission
         res.redirect('/review/feedback');
     } catch (error) {
         // If an error occurs, respond with an error message
@@ -48,6 +93,7 @@ router.post('/feedback', async (req, res) => {
     }
 });
 
+// Route to review all feedback
 router.get('/review/feedback', async (req, res) => {
     try {
         const feedbacks = await Feedback.find().sort({ createdAt: 'desc' });

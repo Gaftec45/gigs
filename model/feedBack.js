@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const feedbackSchema = new mongoose.Schema({
+    gigId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Gig',
+        required: true
+    },
     name: {
         type: String,
         required: true

@@ -8,7 +8,7 @@
     <link href='https://fonts.googleapis.com/css?family=Anta' rel='stylesheet'>
     <title><%= gig.title %> | Tega Gigs</title>
     <style>
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,8 +16,8 @@
 
 body {
     font-family: 'Anta', sans-serif;
-    background-color: #f9f9f9; /* Light grey background */
-}
+    background-color: #f9f9f9; 
+} */
 
 /* Styles for gig details section */
 .gigdetails {
@@ -344,8 +344,8 @@ body {
             </div>
         </div>
     </div>
-    <div>
-        <%- include('ABD/feedb') %>
+    <div class="FBD" style="height: 500px;">
+        <%- include('ABD/feedb', { feedbacks : feedbacks}) %>
     </div>
     
     <%- include('partials/footer') %>

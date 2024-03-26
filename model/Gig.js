@@ -1,5 +1,36 @@
 const mongoose = require('mongoose');
 
+// Define a sub-schema for feedback
+const feedbackSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+    },
+    country: {
+        type: String,
+        required: true,
+    },
+    message: {
+        type: String,
+        required: true,
+    },
+    starRating: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 5,
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
+    },
+});
+
+// Define the main gig schema
 const gigSchema = new mongoose.Schema({
     title: {
         type: String,
@@ -11,8 +42,8 @@ const gigSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        required : true
-      },
+        required: true,
+    },
     category: {
         type: String,
         required: true,
@@ -26,20 +57,21 @@ const gigSchema = new mongoose.Schema({
         basicTitle: String,
         basicDescription: String,
         basicPrice: Number,
-        basicDeliveryDays: Number, // Assuming it should be a number
+        basicDeliveryDays: Number,
         standardTitle: String,
         standardDescription: String,
         standardPrice: Number,
-        standardDeliveryDays: Number, // Assuming it should be a number
+        standardDeliveryDays: Number,
         premiumTitle: String,
         premiumDescription: String,
         premiumPrice: Number,
-        premiumDeliveryDays: Number, // Assuming it should be a number
+        premiumDeliveryDays: Number,
     },
     createdAt: {
         type: Date,
         default: Date.now,
     },
+    feedbacks: [feedbackSchema], // Include the feedback sub-document within the gig schema
 });
 
 module.exports = mongoose.model('Gig', gigSchema);
