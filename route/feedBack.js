@@ -20,7 +20,7 @@ function timeSince(date) {
 }
 
 // Route to get a specific gig and show the feedback form
-router.get('/gigs/:id/add/feedback', async (req, res) => {
+router.get('/gigs/:id/feedback', async (req, res) => {
     try {
         const gigId = req.params.id;
         const gig = await Gig.findById(gigId);
@@ -37,7 +37,7 @@ router.get('/gigs/:id/add/feedback', async (req, res) => {
 });
 
 // Handle feedback submission for a specific gig
-router.post('/gigs/:id/add/feedback', async (req, res) => {
+router.post('/gigs/:id/feedback', async (req, res) => {
     try {
         const { name, email, country, message, starRating } = req.body;
         const gigId = req.params.id;
@@ -111,4 +111,31 @@ router.get('/review/feedback', async (req, res) => {
     }
 });
 
+
+// Example route handler for rendering gig details with feedback pagination
+router.get('/gigs/:id', async (req, res) => {
+    try {
+        // Retrieve the gig details from the database
+        const gig = await Gig.findById(req.params.id);
+        
+        // Retrieve all feedbacks for the gig from the database
+        const allFeedbacks = await Feedback.find({ gigId: req.params.id });
+
+        // Paginate the feedbacks
+        const pageSize = 10; // Adjust the page size as needed
+        const page = parseInt(req.query.page) || 1;
+        const startIndex = (page - 1) * pageSize;
+        const endIndex = page * pageSize;
+        const feedbackSlice = allFeedbacks.slice(startIndex, endIndex);
+
+        // Calculate total number of pages for pagination
+        const totalPages = Math.ceil(allFeedbacks.length / pageSize);
+
+        // Render the gig-details.ejs template with necessary data
+        res.render('gig-details', { gig: gig, feedbackSlice: feedbackSlice, currentPage: page, totalPages: totalPages });
+    } catch (error) {
+        console.error('Error fetching gig details:', error);
+        res.status(500).send('Error loading gig details');
+    }
+});
 module.exports = router;

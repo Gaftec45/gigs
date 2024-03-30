@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Define a sub-schema for feedback
-const feedbackSchema = new mongoose.Schema({
+/* const feedbackSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -28,7 +28,7 @@ const feedbackSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-});
+}); */
 
 // Define the main gig schema
 const gigSchema = new mongoose.Schema({
@@ -70,8 +70,7 @@ const gigSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-    },
-    feedbacks: [feedbackSchema], // Include the feedback sub-document within the gig schema
+    }
 });
 
 module.exports = mongoose.model('Gig', gigSchema);

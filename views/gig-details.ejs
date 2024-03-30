@@ -8,222 +8,221 @@
     <link href='https://fonts.googleapis.com/css?family=Anta' rel='stylesheet'>
     <title><%= gig.title %> | Tega Gigs</title>
     <style>
-/* * {
+     * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
-    font-family: 'Anta', sans-serif;
-    background-color: #f9f9f9; 
-} */
-
-/* Styles for gig details section */
-.gigdetails {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    margin-top: 60px;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-
-.left-section {
-    flex: 1;
-    padding-right: 10px;
-}
-
-.right-section {
-    flex: 1;
-    padding-left: 10px;
-}
-.mm {
-        width: 800px;
     }
 
-.gig-details {
-    margin-top: 20px;
-}
+    body {
+            font-family: 'Anta', sans-serif;
+            background-color: #f9f9f9; 
+        }
 
-.gig-image {
-    max-width: 100%;
-    height: auto;
-}
+        /* Styles for gig details section */
+        .gigdetails {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            margin-top: 60px;
+        }
 
-/* Styles for tab buttons and content */
-.tab {
-    display: flex;
-    justify-content: center;
-    margin-top: 115px;
-    background-color: #e1e1e1; /* Light grey background for tabs */
-   /* border-radius: 8px;  Rounded corners */
-    overflow: hidden; /* Hide overflowing content */
-    width: 500px;
-}
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
 
-.tab button {
-    flex: 1;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 26px;
-    border-bottom: 3px solid transparent;
-    transition: border-color 0.3s ease;
-}
+        .left-section {
+            flex: 1;
+            padding-right: 10px;
+        }
 
-.tab button.active {
-    border-color: #000000; /* Red underline on hover or active */
-}
+        .right-section {
+            flex: 1;
+            padding-left: 10px;
+        }
+        .mm {
+                width: 800px;
+            }
+
+        .gig-details {
+            margin-top: 20px;
+        }
+
+        .gig-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Styles for tab buttons and content */
+        .tab {
+            display: flex;
+            justify-content: center;
+            margin-top: 115px;
+            background-color: #e1e1e1; /* Light grey background for tabs */
+        /* border-radius: 8px;  Rounded corners */
+            overflow: hidden; /* Hide overflowing content */
+            width: 500px;
+        }
+
+        .tab button {
+            flex: 1;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 26px;
+            border-bottom: 3px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .tab button.active {
+            border-color: #000000; /* Red underline on hover or active */
+        }
 
 
-.tabcontent {
-    padding: 10px;
-    background-color: #f5f5f5; /* Light grey background for tab content */
-    border-radius: 8px;
-    margin-top: 20px;
-    width: 500px;
-}
+        .tabcontent {
+            padding: 10px;
+            background-color: #f5f5f5; /* Light grey background for tab content */
+            border-radius: 8px;
+            margin-top: 20px;
+            width: 500px;
+        }
 
-.tabcontent h3 {
-    margin-top: 10px;
-    font-size: 24px;
-    margin-bottom: 15px;
-    color: #333;
-}
+        .tabcontent h3 {
+            margin-top: 10px;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
 
-.tabcontent p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #666;
-}
+        .tabcontent p {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #666;
+        }
 
-.tabcontent .btnO {
-    display: block;
-    width: 100%;
-    height: 45px;
-    padding: 10px;
-    font-size: 18px;
-    background-color: #000000; /* Green button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .tabcontent .btnO {
+            display: block;
+            width: 100%;
+            height: 45px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: #000000; /* Green button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.btnO:hover {
-    background-color: #424242;
-}
+        .btnO:hover {
+            background-color: #424242;
+        }
 
-.star-rating{
-    padding: 10px;
-    margin-top: 80px;
-    width: auto;
-    background-color: #ebebeb;
-    border-radius: 8px;
-}
-.heading {
-  font-size: 35px;
-  margin-right: 25px;
-}
-.fa {
-  font-size: 18px;
-}
+        .star-rating{
+            padding: 10px;
+            width: auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+        }
+        .heading {
+        font-size: 35px;
+        margin-right: 25px;
+        }
+        .fa {
+        font-size: 18px;
+        }
 
-.checked {
-  color: orange;
-}
+        .checked {
+        color: orange;
+        }
 
-/* Three column layout */
-.side {
-  float: left;
-  width: 15%;
-  margin-top:10px;
-}
+        /* Three column layout */
+        .side {
+        float: left;
+        width: 15%;
+        margin-top:10px;
+        }
 
-.middle {
-  margin-top:10px;
-  float: left;
-  width: 70%;
-}
+        .middle {
+        margin-top:10px;
+        float: left;
+        width: 70%;
+        }
 
-/* Place text to the right */
-.right {
-  text-align: right;
-}
+        /* Place text to the right */
+        .right {
+        text-align: right;
+        }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+        /* Clear floats after the columns */
+        .row:after {
+        content: "";
+        display: table;
+        clear: both;
+        }
 
-/* The bar container */
-.bar-container {
-  width: 100%;
-  background-color: #f1f1f1;
-  text-align: center;
-  color: white;
-  border-radius: 5px;
-}
-
-/* Individual bars */
-.bar-5 {width: 100%; height: 10px; background-color: #04AA6D; border-radius: 5px;}
-.bar-4 {width: 6%; height: 10px; background-color: #2196F3; border-radius: 5px;}
-.bar-3 {width: 4%; height: 10px; background-color: #00bcd4; border-radius: 5px;}
-.bar-2 {width: 2%; height: 10px; background-color: #ff9800; border-radius: 5px;}
-.bar-1 {width: 0%; height: 10px; background-color: #f44336; border-radius: 5px;}
-
-/* Responsive layout - make the columns stack on top of each other instead of next to each other */
-
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .wrapper {
-        flex-direction: column;
-    }
-    
-    .left-section,
-    .right-section {
-        padding: 0;
-    }
-    .mm {
+        /* The bar container */
+        .bar-container {
         width: 100%;
-    }
+        background-color: #f1f1f1;
+        text-align: center;
+        color: white;
+        border-radius: 5px;
+        }
 
-    .mm h1{
-        font-size: 20px;
-    }
+        /* Individual bars */
+        .bar-5 {width: 100%; height: 10px; background-color: #000; border-radius: 5px;}
+        .bar-4 {width: 6%; height: 10px; background-color: #000; border-radius: 5px;}
+        .bar-3 {width: 4%; height: 10px; background-color: #000; border-radius: 5px;}
+        .bar-2 {width: 2%; height: 10px; background-color: #000; border-radius: 5px;}
+        .bar-1 {width: 0%; height: 10px; background-color: #000; border-radius: 5px;}
 
-    .tab {
-        margin-top: 20px;
-        width: auto;
-    }
+        /* Responsive layout - make the columns stack on top of each other instead of next to each other */
 
-    .tab button{
-        font-size: 19px;
-    }
-    .gigdetails{
-        margin-top: 50px;
-    }
-    .tabcontent{
-        width: auto;
-    }
-    .side, .middle {
-        width: 100%;
-    }
-    .right {
-        display: none;
-    }
-}
+        /* Responsive design */
+        @media screen and (max-width: 768px) {
+            .wrapper {
+                flex-direction: column;
+            }
+            
+            .left-section,
+            .right-section {
+                padding: 0;
+            }
+            .mm {
+                width: 100%;
+            }
+
+            .mm h1{
+                font-size: 20px;
+            }
+
+            .tab {
+                margin-top: 20px;
+                width: auto;
+            }
+
+            .tab button{
+                font-size: 19px;
+            }
+            .gigdetails{
+                margin-top: 50px;
+            }
+            .tabcontent{
+                width: auto;
+            }
+            .side, .middle {
+                width: 100%;
+            }
+            .right {
+                display: none;
+            }
+        }
 
 
     </style>
@@ -242,6 +241,88 @@ body {
                         <% } %>
                         <h2>About This Package</h2>
                         <p><%= gig.description %></p>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    <span class="heading">Reviews</span> <br>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <p>5.0 average based on 25 reviews.</p>
+                    <hr style="border:3px solid #f1f1f1">
+    
+                    <div class="row">
+                    <div class="side">
+                        <div>5 star</div>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                        <div class="bar-5"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <div>18</div>
+                    </div>
+                    <div class="side">
+                        <div>4 star</div>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                        <div class="bar-4"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <div>3</div>
+                    </div>
+                    <div class="side">
+                        <div>3 star</div>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                        <div class="bar-3"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <div>2</div>
+                    </div>
+                    <div class="side">
+                        <div>2 star</div>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                        <div class="bar-2"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <div>1</div>
+                    </div>
+                    <div class="side">
+                        <div>1 star</div>
+                    </div>
+                    <div class="middle">
+                        <div class="bar-container">
+                        <div class="bar-1"></div>
+                        </div>
+                    </div>
+                    <div class="side right">
+                        <div>0</div>
+                    </div>
+                    </div>
+                    </div>
+                <div class="FBD">
+                    <%- include('ABD/feedb', { feedbacks : feedbackSlice}) %>
+                    <div>
+                        <% if (currentPage > 1) { %>
+                            <a href="/feedback?page=<%= currentPage - 1 %>">Previous</a>
+                        <% } %>
+                
+                        <span>Page <%= currentPage %> of <%= totalPages %></span>
+                
+                        <% if (currentPage < totalPages) { %>
+                            <a href="/feedback?page=<%= currentPage + 1 %>">Next</a>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -273,79 +354,9 @@ body {
                         <button class="btnO">Order Now</button>
                     </div>
                 </div>
-                <div class="star-rating">
-                <span class="heading">Reviews</span> <br>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <p>5.0 average based on 25 reviews.</p>
-                <hr style="border:3px solid #f1f1f1">
 
-                <div class="row">
-                <div class="side">
-                    <div>5 star</div>
-                </div>
-                <div class="middle">
-                    <div class="bar-container">
-                    <div class="bar-5"></div>
-                    </div>
-                </div>
-                <div class="side right">
-                    <div>18</div>
-                </div>
-                <div class="side">
-                    <div>4 star</div>
-                </div>
-                <div class="middle">
-                    <div class="bar-container">
-                    <div class="bar-4"></div>
-                    </div>
-                </div>
-                <div class="side right">
-                    <div>3</div>
-                </div>
-                <div class="side">
-                    <div>3 star</div>
-                </div>
-                <div class="middle">
-                    <div class="bar-container">
-                    <div class="bar-3"></div>
-                    </div>
-                </div>
-                <div class="side right">
-                    <div>2</div>
-                </div>
-                <div class="side">
-                    <div>2 star</div>
-                </div>
-                <div class="middle">
-                    <div class="bar-container">
-                    <div class="bar-2"></div>
-                    </div>
-                </div>
-                <div class="side right">
-                    <div>1</div>
-                </div>
-                <div class="side">
-                    <div>1 star</div>
-                </div>
-                <div class="middle">
-                    <div class="bar-container">
-                    <div class="bar-1"></div>
-                    </div>
-                </div>
-                <div class="side right">
-                    <div>0</div>
-                </div>
-                </div>
-                </div>
             </div>
         </div>
-    </div>
-    <div class="FBD" style="height: 500px;">
-        <%- include('ABD/feedb', { feedbacks : feedbacks}) %>
     </div>
     
     <%- include('partials/footer') %>

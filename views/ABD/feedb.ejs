@@ -6,13 +6,6 @@
     <title>Feedback</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-
         h1 {
             text-align: center;
             margin-bottom: 20px;
@@ -103,7 +96,8 @@
             color: #e74c3c;
         }
         .review{
-            width: 500px;
+            width: auto;
+            margin: 10px;
         }
     </style>
 </head>
@@ -113,16 +107,16 @@
     <ul>
         <% if (feedbacks.length === 0) { %>
             <!-- Display a message if there are no feedbacks -->
-            <p>No feedback yet. Be the first to <a href="/gigs/<%= gig._id %>/add/feedback">Leave feedback</a></p>
+            <p>No feedback yet. Be the first to <a href="/gigs/<%= gig._id %>/feedback">Leave feedback</a></p>
         <% } else { %>
             <!-- Iterate over feedbacks and display them -->
             <% feedbacks.forEach((item) => { %>
                 <li>
                     <div class="feedback-info">
-                        <img class="avatar" src="/uploads/imageUrl-1709934138681.jpg" alt="<%= item.name %>">
+                        <img class="avatar" src="/uploads/avatar.png" alt="<%= item.name %>">
                         <div class="feedback-details">
                             <div class="feedback-header">
-                                <p><strong><%= item.name %></strong> from <%= item.country %></p>
+                                <p><strong><%= item.name %></strong> | <%= item.country %></p>
                                 <p class="timestamp"><%= item.prettyCreatedAt %></p>
                             </div>
                             <div class="stars">
