@@ -30,11 +30,12 @@
 
         .wrapper {
             display: flex;
-            flex-direction: row;
+        flex-direction: row;
             flex-wrap: wrap;
+
         }
 
-        .left-section {
+        /* .left-section {
             flex: 1;
             padding-right: 10px;
         }
@@ -42,9 +43,24 @@
         .right-section {
             flex: 1;
             padding-left: 10px;
-        }
+        } */
+
+        .left-section {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.right-section {
+    width: 500px; /* Adjust the width as needed */
+    position: sticky; /* Stick the right section */
+    top: 0; /* Position it at the top */
+    height: 100%; /* Fill the height of the parent container */
+    margin: 10px;
+}
         .mm {
                 width: 800px;
+                background-color: #fff;
+                padding: 6px;
             }
 
         .gig-details {
@@ -128,6 +144,9 @@
             width: auto;
             background-color: #ffffff;
             border-radius: 8px;
+            margin-top: 30px;
+            margin-left: 5px;
+            margin-right: 5px;
         }
         .heading {
         font-size: 35px;
@@ -138,7 +157,7 @@
         }
 
         .checked {
-        color: orange;
+        color: #ffa500;
         }
 
         /* Three column layout */
@@ -221,6 +240,9 @@
             }
             .right {
                 display: none;
+            }
+            .right-section {
+                width: auto;
             }
         }
 
@@ -311,20 +333,20 @@
                     </div>
                     </div>
                     </div>
-                <div class="FBD">
+                    <div class="FBD">
                     <%- include('ABD/feedb', { feedbacks : feedbackSlice}) %>
-                    <div>
-                        <% if (currentPage > 1) { %>
-                            <a href="/feedback?page=<%= currentPage - 1 %>">Previous</a>
-                        <% } %>
-                
-                        <span>Page <%= currentPage %> of <%= totalPages %></span>
-                
-                        <% if (currentPage < totalPages) { %>
-                            <a href="/feedback?page=<%= currentPage + 1 %>">Next</a>
-                        <% } %>
+                        <div>
+                            <% if (currentPage > 1) { %>
+                                <a href="/feedback?page=<%= currentPage - 1 %>">Previous</a>
+                            <% } %>
+
+                            <span>Page <%= currentPage %> of <%= totalPages %></span>
+
+                            <% if (currentPage < totalPages) { %>
+                                <a href="/feedback?page=<%= currentPage + 1 %>">Next</a>
+                            <% } %>
+                        </div>
                     </div>
-                </div>
             </div>
             <div class="right-section">
                 <div class="packages">
