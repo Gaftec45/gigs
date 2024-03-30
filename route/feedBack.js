@@ -1,5 +1,3 @@
-// routes/gigRoutes.js
-
 const express = require('express');
 const router = express.Router();
 const Gig = require('../model/Gig');
