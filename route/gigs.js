@@ -3,7 +3,9 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const Gig = require('../model/Gig');
-const Feedback = require('../model/Feedback')
+// const Feedback = require('../model/Feedback');
+const Feedback2 = require('../model/feedBack2');
+
 
 // Multer setup for image upload
 const storage = multer.diskStorage({
@@ -69,7 +71,7 @@ router.get('/gigs/:id', async (req, res) => {
         }
 
         // Fetch the total number of feedbacks for pagination purposes
-        const totalFeedbackCount = await Feedback.countDocuments({ gigId: req.params.id });
+        const totalFeedbackCount = await Feedback2.countDocuments({ gigId: req.params.id });
 
         // Define how many feedbacks you want to show per page
         const feedbacksPerPage = 10;
@@ -79,7 +81,7 @@ router.get('/gigs/:id', async (req, res) => {
         let currentPage = req.query.page ? parseInt(req.query.page) : 1;
 
         // Fetch only the slice of feedbacks that should be displayed on the current page
-        const feedbackSlice = await Feedback.find({ gigId: req.params.id })
+        const feedbackSlice = await Feedback2.find({ gigId: req.params.id })
                              .sort({ createdAt: 'desc' })
                              .skip((currentPage - 1) * feedbacksPerPage)
                              .limit(feedbacksPerPage);
@@ -141,7 +143,7 @@ router.post('/gigs/:id/feedback', async (req, res) => {
 
         // Update gig's rating or perform other necessary actions
         // Create a new Feedback instance
-        const newFeedback = new Feedback({
+        const newFeedback = new Feedback2({
             gigId,
             name,
             email,
