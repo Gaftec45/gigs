@@ -6,6 +6,7 @@ const gigRoute = require('./route/gigs')
 const BlogPost = require('./model/Blog');
 const Gig = require('./model/Gig');
 const feedBack = require('./route/feedBack');
+const Feedback = require('./model/Feedback');
 const MONGOURI = process.env.MONGO_URI;
 // const bodyParser = require('body-parser')
 
