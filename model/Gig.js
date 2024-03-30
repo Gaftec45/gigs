@@ -31,7 +31,7 @@ const mongoose = require('mongoose');
 }); */
 
 // Define the main gig schema
-const gigSchema = new mongoose.Schema({
+const gigSchema = new mongoose.Schema({ 
     title: {
         type: String,
         required: true,
