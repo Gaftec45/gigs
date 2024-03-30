@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Gig = require('../model/Gig');
+const Feedback2 = require('../model/feedBack2');
 // const Feedback = require('../model/Feedback');
 
 // Define the timeSince function
@@ -40,7 +41,7 @@ router.post('/gigs/:id/feedback', async (req, res) => {
         const { name, email, country, message, starRating } = req.body;
         const gigId = req.params.id;
 
-        const newFeedback = new Feedback({
+        const newFeedback = new Feedback2({
             gigId,
             name,
             email,
@@ -71,7 +72,7 @@ router.post('/feedback', async (req, res) => {
         const { name, email, country, message, starRating } = req.body;
 
         // Create a new feedback instance
-        const newFeedback = new Feedback({
+        const newFeedback = new Feedback2({
             name,
             email,
             country,
@@ -94,7 +95,7 @@ router.post('/feedback', async (req, res) => {
 // Route to review all feedback
 router.get('/review/feedback', async (req, res) => {
     try {
-        const feedbacks = await Feedback.find().sort({ createdAt: 'desc' });
+        const feedbacks = await Feedback2.find().sort({ createdAt: 'desc' });
 
         // Modify timestamps to display "Just now" if within the last minute
         feedbacks.forEach(feedback => {
@@ -117,7 +118,7 @@ router.get('/gigs/:id', async (req, res) => {
         const gig = await Gig.findById(req.params.id);
         
         // Retrieve all feedbacks for the gig from the database
-        const allFeedbacks = await Feedback.find({ gigId: req.params.id });
+        const allFeedbacks = await Feedback2.find({ gigId: req.params.id });
 
         // Paginate the feedbacks
         const pageSize = 10; // Adjust the page size as needed
