@@ -3,7 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const Gig = require('../model/Gig');
-// const Feedback = require('../model/Feedback');
+const Feedback = require('../model/Feedback')
 
 // Multer setup for image upload
 const storage = multer.diskStorage({
@@ -140,7 +140,6 @@ router.post('/gigs/:id/feedback', async (req, res) => {
         }
 
         // Update gig's rating or perform other necessary actions
-
         // Create a new Feedback instance
         const newFeedback = new Feedback({
             gigId,
