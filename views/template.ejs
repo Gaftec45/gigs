@@ -78,3 +78,46 @@
 
 
 <%- include('ABD/feedb', { feedbacks : feedbackSlice}) %>
+
+
+<h1>Conversation</h1>
+
+<ul>
+    <% messages.forEach(function(message) { %>
+        <% if (message.sender === senderId || message.receiver === receiverId) { %>
+            <li><%= message.message %></li>
+        <% } %>
+    <% }); %>
+</ul>
+
+<form action="/" method="post" id="messageForm">
+<label for="message">Content:</label><br>
+<input type="text" id="message" name="message" autocomplete="off"><br>
+<button type="submit">Send</button>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+
+<script>
+    var socket = io();
+    
+    $('#messageForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Emit 'chat message' event with message object
+        socket.emit('chat message', {
+            message: $('#message').val()
+        });
+
+        // Clear input field
+        $('#message').val('');
+
+        return false; // Prevent default form submission
+    });
+
+    // Handle received messages
+    socket.on('chat message', function(msg) {
+        // Append message content to <ul> element
+        $('#messages').append($('<li>').text(msg.message));
+    });
+</script>

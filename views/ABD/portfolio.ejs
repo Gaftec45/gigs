@@ -1,0 +1,143 @@
+ <style>
+    /* Base styles */
+        header {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 20px;
+            text-align: center;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #d5d5d5;
+        }
+        .portfolio-filter {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .portfolio-filter button {
+            margin: 5px;
+            padding: 8px 16px;
+            border: 1px solid #d5d5d5;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #000000;
+            cursor: pointer;
+        }
+        .portfolio-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .portfolio-item {
+            width: calc(25.33% - 20px);
+            margin: 10px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .portfolio-item-content {
+            padding: 10px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+        .portfolio-item-title {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+        .portfolio-item-description {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .portfolio-item {
+                width: calc(50% - 20px);
+            }
+
+            .portfolio-filter button {
+                margin: 2px;
+                padding: 4px 8px;
+                border-radius: 5px;
+            }
+        }
+
+        /* Media query for even smaller screens */
+        @media (max-width: 480px) {
+            .portfolio-item {
+                width: calc(100% - 20px);
+            }
+        }
+ </style>
+    <header>
+        <h1>Portfolio with Filtering</h1>
+    </header>
+        <div class="portfolio-filter">
+            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="graphics-designs">Graphics & Designs</button>
+            <button class="filter-btn" data-filter="programming-tech">Programming & Tech</button>
+            <button class="filter-btn" data-filter="digital-marketing">Digital Marketing</button>
+            <button class="filter-btn" data-filter="video-animation">Video & Animation</button>
+            <button class="filter-btn" data-filter="writing-translation">Writing & Translation</button>
+        </div>
+
+    <section id="portfolio" class="portfolio-items">
+        <div class="portfolio-item graphics-designs">
+            <img src="/uploads/third.jpg" alt="Portfolio Item 1">
+            <div class="portfolio-item-content">
+                <h2 class="portfolio-item-title">Project 1</h2>
+                <p class="portfolio-item-description">Description of Project 1</p>
+            </div>
+        </div>
+        <div class="portfolio-item programming-tech">
+            <img src="/uploads/second.jpg" alt="Portfolio Item 2">
+            <div class="portfolio-item-content">
+                <h2 class="portfolio-item-title">Project 2</h2>
+                <p class="portfolio-item-description">Description of Project 2</p>
+            </div>
+        </div>
+        <div class="portfolio-item digital-marketing">
+            <img src="/uploads/tegafate sales prove.png" alt="Portfolio Item 3">
+            <div class="portfolio-item-content">
+                <h2 class="portfolio-item-title">Project 3</h2>
+                <p class="portfolio-item-description">Description of Project 3</p>
+            </div>
+        </div>
+        <div class="portfolio-item digital-marketing">
+            <img src="/uploads/tegafate sales provee.png" alt="Portfolio Item 4">
+            <div class="portfolio-item-content">
+                <h2 class="portfolio-item-title">Project 4</h2>
+                <p class="portfolio-item-description">Description of Project 3</p>
+            </div>
+        </div>
+        <!-- Add more portfolio items as needed -->
+    </section>    
+
+    <script>
+        // JavaScript code for filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filterValue = btn.getAttribute('data-filter');
+                    filterPortfolioItems(filterValue);
+                });
+            });
+
+            function filterPortfolioItems(filter) {
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>

@@ -5,45 +5,44 @@ const routes = require('./route/blog');
 const gigRoute = require('./route/gigs')
 const BlogPost = require('./model/Blog'); 
 const Gig = require('./model/Gig');
-// const Feedback = require('./model/Feedback');
 const feedBack = require('./route/feedBack');
 const MONGOURI = process.env.MONGO_URI;
-// const bodyParser = require('body-parser')
-
 const app = express();
 const PORT = process.env.PORT || 3000;
+
 
 // Connect to MongoDB
 mongoose.connect(MONGOURI)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Error connecting to MongoDB:', err));
 
-  app.set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 
-  app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-  app.use(express.static('public')); // Serve static files 
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.static('public')); // Serve static files 
 
 // Routes
 app.use('/', gigRoute)
 app.use('/', feedBack);
 app.use('/', routes);
 app.get('/', async (req, res) => {
-    try {
-      const blogPosts = await BlogPost.find().sort({ createdAt: 'desc' }); // Fetches all blog posts and sorts them by createdAt in descending order
-      const gigs = await Gig.find().sort({ createdAt: 'desc' }); // Assuming you also want to sort gigs by createdAt
-      // Merge blogPosts and gigs into a single object for rendering
-      res.render('index', { blogs: blogPosts, gigs: gigs });
-    } catch (err) {
-      console.error('Error fetching data:', err);
-      res.status(500).send('Error fetching data'); 
-    }
+  try {
+    const blogPosts = await BlogPost.find().sort({ createdAt: 'desc' }); // Fetches all blog posts and sorts them by createdAt in descending order
+    const gigs = await Gig.find().sort({ createdAt: 'desc' }); // Assuming you also want to sort gigs by createdAt
+    
+    // Merge blogPosts and gigs into a single object for rendering
+    res.render('index', { blogs: blogPosts, gigs: gigs });
+  } catch (err) {
+    console.error('Error fetching data:', err);
+    res.status(500).send('Error fetching data'); 
+  }
 });
+
 app.get('*', (req, res) =>{
   res.render('404');
 });
 
-
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, () => { // Use server.listen() instead of app.listen()
   console.log(`Server is running on http://localhost:${PORT}`);
 });
